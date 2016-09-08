@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
-	
 	private int timeLeft;
 	private int startingTime;
 
@@ -18,10 +17,9 @@ public class Timer : MonoBehaviour {
 		timeLeft = startingTime - (int)Time.timeSinceLevelLoad;
 		GetComponent<Text> ().text = "" + timeLeft;
 
-		if (timeLeft == 0) {
-			// LOAD NEW LEVEL/SCREEN
-			Application.LoadLevel (Application.loadedLevel);
+		if ( timeLeft == 0 ) {
+			// load new level/screen
+			Application.LoadLevel(Application.loadedLevel);
 		}
 	}
-
 }

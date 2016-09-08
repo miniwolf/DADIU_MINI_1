@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class Reload : MonoBehaviour {
-
-	public void ReloadLevel(){
-		Application.LoadLevel (Application.loadedLevel);
+	public void ReloadLevel() {
+		Application.LoadLevel(Application.loadedLevel);
 	}
 }

@@ -2,23 +2,22 @@
 using System.Collections;
 
 /// <summary>
-/// Score interface. Manages all the methods for adding score 
+/// Score interface. Manages all the methods for adding score
 /// (when taking laundry, cakes or hitting the troll).
 /// </summary>
 public interface ScoreInterface {
-
 	/// <summary>
 	/// Adds the laundry score.
 	/// </summary>
-	void addLaundryScore ();
+	void AddLaundryScore ();
 
 	/// <summary>
 	/// Adds score when a cake is taken.
 	/// </summary>
-	void addCakesScore ();
+	void AddCakesScore ();
 
 	/// <summary>
 	/// Adds score when the troll is hit.
 	/// </summary>
-	void addTrollScore();
+	void AddTrollScore();
 }
