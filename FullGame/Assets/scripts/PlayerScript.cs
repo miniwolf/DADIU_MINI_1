@@ -13,40 +13,38 @@ public class PlayerScript : MonoBehaviour {
 	private string cakeTag = "Cake";
 	private string laundryTag = "Laundry";
 	private Stopwatch timer;
-	
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
-
-		PlayerPrefs.SetInt("highscore", 0);
 	}
 
 	/// <summary>
 	/// Moves the player agent to a selected position
 	/// </summary>
 	/// <param name="pos">Position selected in the scene</param>
-	void Move(Vector3 pos) {
+	private void Move(Vector3 pos) {
 		RaycastHit hit;
 		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
 			agent.destination = hit.point;
 		}
 	}
 
-	public void OnMouseDown() {
+	void OnMouseDown() {
 		Move(Input.mousePosition);
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
-			foreach(Touch touch in Input.touches) {
-				Move(touch.position);
-			}
+		foreach ( Touch touch in Input.touches ) {
+			Move(touch.position);
 		}
 
-		if (Input.GetMouseButtonDown(1)) {
+		// TODO: currently only works on testing with right mouse button
+		// These lines are only for testing.
+		if ( Input.GetMouseButtonDown(1) ) {
 			Move(Input.mousePosition);
 		}
 	}
@@ -58,13 +56,13 @@ public class PlayerScript : MonoBehaviour {
 	/// </summary>
 	/// <param name="other">Other collider</param>
 	void OnCollisionEnter(Collision other) {
-		if(other.gameObject.tag == cakeTag) {
+		if ( other.gameObject.tag == cakeTag ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			//AddCake();
 			//AddCakeScore();
 		}
 
-		if (other.gameObject.tag == laundryTag) {
+		if ( other.gameObject.tag == laundryTag ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			//AddLaundryScore();
 			// TODO speedup
