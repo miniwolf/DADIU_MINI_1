@@ -7,7 +7,6 @@ public class Girl : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		enemy = GameObject.FindObjectOfType<Enemy>();
-		enemy.StartFollowingGirl(this.gameObject);
 	}
 	
 	// Update is called once per frame

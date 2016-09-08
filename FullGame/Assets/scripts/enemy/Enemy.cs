@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour, EnemyI {
+public class Enemy : MonoBehaviour {
+	public GameObject following;
 
 	// Use this for initialization
-
 	private const int ENEMY_CAKE_HIT_DELAY_SECONDS = 2;
-
-	private GameObject following;
-	private bool moving;
+	private bool moving = true;
 	private NavMeshAgent navAgent;
 
-	void Start (){
+	void Start() {
 		navAgent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -25,11 +23,6 @@ public class Enemy : MonoBehaviour, EnemyI {
 		} else {
 			navAgent.destination = gameObject.transform.position; // not move - set position to this object position
 		}
-	}
-
-	public void StartFollowingGirl(GameObject target) {
-		following = target;
-		moving = true;
 	}
 
 	void OnCollisionEnter(Collision collision) {
