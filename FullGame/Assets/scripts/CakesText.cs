@@ -24,7 +24,7 @@ public class CakesText : MonoBehaviour, CakesTextInterface {
 	public void AddCake() {
 		numCakes++;
 		PlayerPrefs.SetInt("numCakes", numCakes);
-		score.addCakesScore ();
+		score.AddCakesScore ();
 	}
 
 	public void RemoveCake() {
