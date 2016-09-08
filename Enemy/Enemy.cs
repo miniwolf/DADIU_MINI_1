@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, EnemyI {
 
 	// Use this for initialization
+
+	private const int ENEMY_CAKE_HIT_DELAY_SECONDS = 2;
 
 	private GameObject following;
 	private bool moving;
 	private NavMeshAgent navAgent;
 
-	void Start () {
+	void Start (){
 		navAgent = GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update (){
 		if (following != null && moving) {
 			//transform.position = Vector3.MoveTowards(transform.position, following.transform.position, 0.3f);
 			navAgent.destination = following.transform.position;
+			navAgent.Resume();
 			transform.LookAt (navAgent.nextPosition);
 		} else {
 			navAgent.destination = gameObject.transform.position; // not move - set position to this object position
@@ -40,9 +43,9 @@ public class Enemy : MonoBehaviour {
 	IEnumerator StopMoving() {
 		moving = false;
 		PlayEating ();
-		yield return new WaitForSeconds (2.0f);
+		yield return new WaitForSeconds(ENEMY_CAKE_HIT_DELAY_SECONDS);
 
-		StartMoving ();
+		StartMoving();
 	}
 
 	private void PlayEating() {
