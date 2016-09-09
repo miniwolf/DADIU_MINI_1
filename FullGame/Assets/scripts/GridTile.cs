@@ -15,8 +15,8 @@ public class GridTile {
 
 	public void CheckIfObstructed(){
 		RaycastHit hit;
-		if(Physics.Raycast(new Vector3(rect.center.x,20,rect.center.y),-Vector3.up,out hit,25)){
-			if (hit.transform.tag != "Obstacle") {
+		if(Physics.Raycast(new Vector3(rect.center.x,40,rect.center.y),-Vector3.up,out hit,45)){
+			if (hit.transform.tag != "Obstacle"&&hit.transform.tag != "Player"&&hit.transform.tag!="Enemy") {
 				isObstructed = false;
 			} else {
 				isObstructed = true;
@@ -24,9 +24,7 @@ public class GridTile {
 		}
 	}
 
-	public void ObstructionPlaced(int x, int y){
-		
-	}
+
 
 
 

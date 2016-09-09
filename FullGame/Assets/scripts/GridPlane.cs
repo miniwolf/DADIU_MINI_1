@@ -100,11 +100,13 @@ public class GridPlane : MonoBehaviour,GridInterface  {
 			randPoints = RandGridPoints ();
 			randX = Mathf.RoundToInt (randPoints.x);
 			randY = Mathf.RoundToInt (randPoints.y);
+			theGrid[randX][randY].CheckIfObstructed();
 			iterator++;
-		} while(theGrid [randX] [randY].isObstructed&&iterator<100);
-		if (iterator >= 100) {
+		} while(theGrid [randX] [randY].isObstructed&&iterator<1000);
+		if (iterator >= 1000) {
 			return Vector3.zero;
 		}
+
 		ObstructionPlaced (randX, randY);
 		return new Vector3 (theGrid [randX] [randY].rect.center.x, yPlacementOfGO, theGrid [randX] [randY].rect.center.y);
 	}
