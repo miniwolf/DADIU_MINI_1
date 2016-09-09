@@ -12,8 +12,8 @@ public class PlayerScript : MonoBehaviour {
 
 	private NavMeshAgent agent;
 	private Stopwatch timer;
-	public Score score;
-	public CakesText cakeText;
+	private ScoreInterface score;
+	private CakesTextInterface cakeText;
 	public int speedupTime = 1;
 
 	// Use this for initialization
@@ -22,7 +22,10 @@ public class PlayerScript : MonoBehaviour {
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
 		speedup = 2 * speed;
-		}
+
+		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesTextInterface>();
+		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
+	}
 
 	/// <summary>
 	/// Moves the player agent to a selected position
@@ -71,7 +74,7 @@ public class PlayerScript : MonoBehaviour {
 
 	IEnumerator SpeedUp() {
 		speed += speedup;
-		return new WaitForSeconds(speedupTime);
+		yield return new WaitForSeconds(speedupTime);
 
 		speed -= speedup;
 	}

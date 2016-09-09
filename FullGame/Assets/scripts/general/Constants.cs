@@ -9,4 +9,6 @@ public class Constants {
 	public const string LAUNDRY = "Laundry";
 	public const string CAKEICON = "CakeIcon";
 	public const string PLAYERCAM = "MainCamera";
+	public const string CAKETEXT = "CakeText";
+	public const string SCORE = "Score";
 }

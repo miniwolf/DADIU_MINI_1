@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	public GameObject following;
 	public Cake cake;
-	public Score score;
+	private ScoreInterface score;
 
 	// Use this for initialization
 	public int stunTime = 2;
@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour {
 
 	void Start() {
 		navAgent = GetComponent<NavMeshAgent>();
+		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
 	}
 	
 	// Update is called once per frame

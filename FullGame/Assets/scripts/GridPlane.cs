@@ -56,8 +56,13 @@ public class GridPlane : MonoBehaviour,GridInterface  {
 	/// <returns>The grid position in Vector2.</returns>
 	/// <param name="worldPos">World coordinates.</param>
 	public Vector2 WorldtoGridPos(Vector3 worldPos){
-		float x = (worldPos.x - (gameObject.transform.localScale.x/2))*gridSizeX;
-		float y = (worldPos.y - (gameObject.transform.localScale.y/2))*gridSizeY;
+
+		/*float x = (gameObject.transform.localScale.x / 2 - worldPos.x) / gameObject.transform.localScale.x / gridSizeX;
+		float y = (gameObject.transform.localScale.y/2 - worldPos.z)/gameObject.transform.localScale.y/gridSizeY;
+		*/			
+		float x = (((worldPos.x-gameObject.transform.localScale.x / gridSizeX / 2)+gameObject.transform.localScale.x/2) / (gameObject.transform.localScale.x / gridSizeX));
+		float y = (((worldPos.z-gameObject.transform.localScale.y / gridSizeY / 2)+gameObject.transform.localScale.y/2) / (gameObject.transform.localScale.y / gridSizeY));
+
 		return(new Vector2(x, y));
 	}
 
@@ -108,6 +113,7 @@ public class GridPlane : MonoBehaviour,GridInterface  {
 		}
 
 		ObstructionPlaced (randX, randY);
+		print ("RandPos " + randX + " " + randY); 
 		return new Vector3 (theGrid [randX] [randY].rect.center.x, yPlacementOfGO, theGrid [randX] [randY].rect.center.y);
 	}
 
