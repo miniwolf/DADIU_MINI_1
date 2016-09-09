@@ -6,23 +6,23 @@ using System.Diagnostics;
 // TODO implements interface
 public class PlayerScript : MonoBehaviour {
 	public int speed = 6;
+	private int speedup ;
 	public int angularSpeed = 120;
-	public Score score;
-	public CakesText cakeText;
+	public Camera cam;
 
 	private NavMeshAgent agent;
-	private Cake cakeIcon;
-	private Camera playerCam;
+	private Stopwatch timer;
+	public Score score;
+	public CakesText cakeText;
+	public int speedupTime = 1;
 
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
-
-		cakeIcon = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<Cake>();
-		playerCam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
-	}
+		speedup = 2 * speed;
+		}
 
 	/// <summary>
 	/// Moves the player agent to a selected position
@@ -30,25 +30,21 @@ public class PlayerScript : MonoBehaviour {
 	/// <param name="pos">Position selected in the scene</param>
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
-		if ( Physics.Raycast(playerCam.ScreenPointToRay(pos), out hit) ) {
-			if ( hit.transform.tag != Constants.CAKEICON ) {
-				agent.destination = hit.point;
-			}
+		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
+			agent.destination = hit.point;
 		}
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if ( !cakeIcon.MayThrow() ) {	
-			foreach ( Touch touch in Input.touches ) {
-				Move(touch.position);
-			}
+		foreach ( Touch touch in Input.touches ) {
+			Move(touch.position);
+		}
 
-			// TODO: currently only works on testing with right mouse button
-			// These lines are only for testing.
-			if ( Input.GetMouseButtonDown(1) ) {
-				Move(Input.mousePosition);
-			}
+		// TODO: currently only works on testing with right mouse button
+		// These lines are only for testing.
+		if ( Input.GetMouseButtonDown(1) ) {
+			Move(Input.mousePosition);
 		}
 	}
 
@@ -58,7 +54,7 @@ public class PlayerScript : MonoBehaviour {
 	/// Laundry: Removes the laundry and adds laundry score
 	/// </summary>
 	/// <param name="other">Other collider</param>
-	void OnTriggerEnter(Collider other) {
+	void OnCollisionEnter(Collision other) {
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			cakeText.AddCake();
@@ -67,7 +63,16 @@ public class PlayerScript : MonoBehaviour {
 		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			score.AddLaundryScore();
-			// TODO speedup
+			// speedup
+			StartCoroutine(SpeedUp());
 		}
+	}
+
+
+	IEnumerator SpeedUp() {
+		speed += speedup;
+		return new WaitForSeconds(speedupTime);
+
+		speed -= speedup;
 	}
 }
