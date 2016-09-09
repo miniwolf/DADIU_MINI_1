@@ -14,7 +14,9 @@ public class Score : MonoBehaviour, ScoreInterface {
 
 	void Start() {
 		text = GetComponent<Text>();
-		score = PlayerPrefs.GetInt("score");
+		// player score set to 0 and highscore taken from the preferences
+		score = 0;
+		PlayerPrefs.SetInt("score", 0);
 		highscore = PlayerPrefs.GetInt("highscore");
 	}
 

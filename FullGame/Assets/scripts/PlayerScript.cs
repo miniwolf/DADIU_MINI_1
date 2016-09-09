@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 using System.Diagnostics;
 
 // TODO implements interface
 public class PlayerScript : MonoBehaviour {
-	public int speed = 3;
+	public int speed = 6;
 	public int angularSpeed = 120;
 	public Camera cam;
 
 	private NavMeshAgent agent;
-	private string cakeTag = "Cake";
-	private string laundryTag = "Laundry";
 	private Stopwatch timer;
+	public Score score;
+	public CakesText cakeText;
 
 	// Use this for initialization
 	void Start () {
@@ -52,15 +52,14 @@ public class PlayerScript : MonoBehaviour {
 	/// </summary>
 	/// <param name="other">Other collider</param>
 	void OnCollisionEnter(Collision other) {
-		if ( other.gameObject.tag == cakeTag ) {
+		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
-			//AddCake();
-			//AddCakeScore();
+			cakeText.AddCake();
 		}
 
-		if ( other.gameObject.tag == laundryTag ) {
+		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
-			//AddLaundryScore();
+			score.AddLaundryScore();
 			// TODO speedup
 		}
 	}

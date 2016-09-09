@@ -14,7 +14,9 @@ public class CakesText : MonoBehaviour, CakesTextInterface {
 
 	void Start() {
 		text = GetComponent<Text>();
-		numCakes = PlayerPrefs.GetInt("numCakes");
+		// number of initial cakes is set to 0
+		numCakes = 0;
+		PlayerPrefs.SetInt("numCakes", 0);
 	}
 
 	void Update() {
