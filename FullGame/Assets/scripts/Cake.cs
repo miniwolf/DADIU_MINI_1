@@ -3,6 +3,5 @@ using UnityEngine.UI;
 using System.Collections;
 
 public interface Cake  {
-	void hit();
+	bool MayThrow();
 }
-

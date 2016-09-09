@@ -7,18 +7,21 @@ using System.Diagnostics;
 public class PlayerScript : MonoBehaviour {
 	public int speed = 6;
 	public int angularSpeed = 120;
-	public Camera cam;
-
-	private NavMeshAgent agent;
-	private Stopwatch timer;
 	public Score score;
 	public CakesText cakeText;
+
+	private NavMeshAgent agent;
+	private Cake cakeIcon;
+	private Camera playerCam;
 
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
+
+		cakeIcon = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<Cake>();
+		playerCam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 	}
 
 	/// <summary>
@@ -27,7 +30,7 @@ public class PlayerScript : MonoBehaviour {
 	/// <param name="pos">Position selected in the scene</param>
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
-		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
+		if ( Physics.Raycast(playerCam.ScreenPointToRay(pos), out hit) ) {
 			if ( hit.transform.tag != Constants.CAKEICON ) {
 				agent.destination = hit.point;
 			}
@@ -36,14 +39,16 @@ public class PlayerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		foreach ( Touch touch in Input.touches ) {
-			Move(touch.position);
-		}
+		if ( !cakeIcon.MayThrow() ) {	
+			foreach ( Touch touch in Input.touches ) {
+				Move(touch.position);
+			}
 
-		// TODO: currently only works on testing with right mouse button
-		// These lines are only for testing.
-		if ( Input.GetMouseButtonDown(1) ) {
-			Move(Input.mousePosition);
+			// TODO: currently only works on testing with right mouse button
+			// These lines are only for testing.
+			if ( Input.GetMouseButtonDown(1) ) {
+				Move(Input.mousePosition);
+			}
 		}
 	}
 
