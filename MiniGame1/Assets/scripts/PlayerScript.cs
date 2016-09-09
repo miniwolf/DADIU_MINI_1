@@ -6,7 +6,8 @@ using System.Diagnostics;
 // TODO implements interface
 public class PlayerScript : MonoBehaviour {
 	public int speed = 6;
-    private int speedup ;
+    private int speedup;
+    private int slowdown;
 	public int angularSpeed = 120;
 	public Camera cam;
 
@@ -15,6 +16,7 @@ public class PlayerScript : MonoBehaviour {
 	public Score score;
 	public CakesText cakeText;
     public int speedupTime = 1;
+    public int slowdownTime = 1;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +24,7 @@ public class PlayerScript : MonoBehaviour {
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
         speedup = 2 * speed;
-
+        slowdown = speed / 2;
     }
 
 	/// <summary>
@@ -56,18 +58,27 @@ public class PlayerScript : MonoBehaviour {
 	/// </summary>
 	/// <param name="other">Other collider</param>
 	void OnCollisionEnter(Collision other) {
+        // Eat a cake
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			cakeText.AddCake();
 		}
 
+        // Take laundry
 		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			score.AddLaundryScore();
-            // speedup
+            // speed up for speedupTime
             StartCoroutine(SpeedUp());
 		}
-	}
+
+        // Touch a mushroom
+        if(other.gameObject.tag == Constants.MUSHROOM) {
+            other.gameObject.SetActive(false); // TODO replace with Despawn method
+            // slow down for slowdownTime seconds
+            StartCoroutine(SlowDown());
+        }
+    }
 
 
     IEnumerator SpeedUp() {
@@ -75,5 +86,12 @@ public class PlayerScript : MonoBehaviour {
         yield return new WaitForSeconds(speedupTime);
 
         speed -= speedup;
+    }
+
+    IEnumerator SlowDown() {
+        speed -= slowdown;
+        yield return new WaitForSeconds(slowdownTime);
+
+        speed += slowdown;
     }
 }
