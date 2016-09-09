@@ -92,7 +92,7 @@ public class CakeImpl : MonoBehaviour {
 		ballBody.constraints = RigidbodyConstraints.FreezePosition;
 		ballBody.freezeRotation = true;
 		ballBody.velocity = Vector3.zero;
-		ballBody.rotation = startRotation;
+		ballBody.rotation = Quaternion.identity;
 		isShooting = false;
 	}
 }
