@@ -28,7 +28,9 @@ public class PlayerScript : MonoBehaviour {
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
 		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
-			agent.destination = hit.point;
+			if ( hit.transform.tag != Constants.CAKEICON ) {
+				agent.destination = hit.point;
+			}
 		}
 	}
 
@@ -51,7 +53,7 @@ public class PlayerScript : MonoBehaviour {
 	/// Laundry: Removes the laundry and adds laundry score
 	/// </summary>
 	/// <param name="other">Other collider</param>
-	void OnCollisionEnter(Collision other) {
+	void OnTriggerEnter(Collider other) {
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			cakeText.AddCake();

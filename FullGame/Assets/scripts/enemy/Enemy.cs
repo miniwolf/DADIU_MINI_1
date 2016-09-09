@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	public GameObject following;
 	public Cake cake;
+	public Score score;
 
 	// Use this for initialization
 	public int stunTime = 2;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
 			StartCoroutine(StopMoving());
+			score.AddTrollScore();
 		}
 	}
 

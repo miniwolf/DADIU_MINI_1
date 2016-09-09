@@ -14,12 +14,15 @@ public class CakeImpl : MonoBehaviour {
 	public Camera cam;
 	public GameObject ball;
 	public Rigidbody ballBody;
-	public GameObject parent;
 	public Text debug;
+	public Transform player;
 
 	private Vector3 startPos;
 	private Rigidbody rigid;
 	private Quaternion startRotation;
+
+	private bool isShooting = false;
+	private bool mayThrow = false;
 
 	void Start() {
 		startRotation = ballBody.rotation;
@@ -27,12 +30,7 @@ public class CakeImpl : MonoBehaviour {
 	}
 
 	public void OnMouseDown() {
-		Debug.Log("Here");
-		down(Input.mousePosition);
-	}
-
-	private void down(Vector3 position) {
-		startPos = ball.transform.position;
+		down();
 	}
 
 	public void OnMouseUp() {
@@ -48,21 +46,38 @@ public class CakeImpl : MonoBehaviour {
 		endPos.y = 0;
 
 		transform.parent = null;
-		Vector3 force = endPos - startPos;
+		Vector3 force = endPos - ball.transform.position;
 		ballBody.freezeRotation = false;
 		ballBody.constraints = RigidbodyConstraints.FreezePositionY;
 		ballBody.AddForce(force * factor);
+		isShooting = true;
+		mayThrow = false;
+	}
+
+	void down() {
+		mayThrow = true;
 	}
 	
 	// Update is called once per frame
 	public void Update() {
+		RaycastHit hit;
+
 		if ( Input.touchCount > 0 ) {
 			Touch touch = Input.touches[0];
-			if ( touch.phase == TouchPhase.Began ) {
-				down(touch.position);
-			} else if ( touch.phase == TouchPhase.Ended ) {
+			if ( Physics.Raycast(cam.ScreenPointToRay(touch.position), out hit) 
+				&& hit.transform.tag == Constants.CAKEICON ) {
+				if ( touch.phase == TouchPhase.Began ) {
+					down();
+				}
+
+			}
+			if ( mayThrow && touch.phase == TouchPhase.Ended ) {
 				up(touch.position);
 			}
+		}
+
+		if ( !isShooting ) {
+			transform.position = new Vector3(player.position.x, transform.position.y, player.position.z);			
 		}
 	}
 
@@ -72,13 +87,12 @@ public class CakeImpl : MonoBehaviour {
 
 	private void Reset() {
 		gameObject.SetActive(PlayerPrefs.GetInt("numCakes") != 1);
-		transform.position = new Vector3(parent.transform.position.x, transform.position.y, parent.transform.position.z);
 		transform.rotation = startRotation;
 
 		ballBody.constraints = RigidbodyConstraints.FreezePosition;
 		ballBody.freezeRotation = true;
 		ballBody.velocity = Vector3.zero;
 		ballBody.rotation = startRotation;
-		transform.parent = parent.transform;
+		isShooting = false;
 	}
 }
