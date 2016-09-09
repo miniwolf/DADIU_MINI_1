@@ -19,8 +19,10 @@ public class CakeImpl : MonoBehaviour {
 
 	private Vector3 startPos;
 	private Rigidbody rigid;
+	private Quaternion startRotation;
 
 	void Start() {
+		startRotation = ballBody.rotation;
 		ballBody.freezeRotation = true;
 	}
 
@@ -69,13 +71,14 @@ public class CakeImpl : MonoBehaviour {
 	}
 
 	private void Reset() {
-		transform.parent = parent.transform;
 		gameObject.SetActive(PlayerPrefs.GetInt("numCakes") != 1);
 		transform.position = new Vector3(parent.transform.position.x, transform.position.y, parent.transform.position.z);
-		transform.rotation = new Quaternion();
+		transform.rotation = startRotation;
 
 		ballBody.constraints = RigidbodyConstraints.FreezePosition;
 		ballBody.freezeRotation = true;
-		ballBody.velocity = new Vector3();
+		ballBody.velocity = Vector3.zero;
+		ballBody.rotation = startRotation;
+		transform.parent = parent.transform;
 	}
 }
