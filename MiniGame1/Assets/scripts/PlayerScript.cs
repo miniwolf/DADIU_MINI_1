@@ -1,27 +1,29 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 using System.Diagnostics;
 
 // TODO implements interface
 public class PlayerScript : MonoBehaviour {
 	public int speed = 6;
+    private int speedup ;
 	public int angularSpeed = 120;
 	public Camera cam;
 
 	private NavMeshAgent agent;
-	private string cakeTag = "Cake";
-	private string laundryTag = "Laundry";
 	private Stopwatch timer;
 	public Score score;
 	public CakesText cakeText;
+    public int speedupTime = 1;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
-	}
+        speedup = 2 * speed;
+
+    }
 
 	/// <summary>
 	/// Moves the player agent to a selected position
@@ -54,15 +56,24 @@ public class PlayerScript : MonoBehaviour {
 	/// </summary>
 	/// <param name="other">Other collider</param>
 	void OnCollisionEnter(Collision other) {
-		if ( other.gameObject.tag == cakeTag ) {
+		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			cakeText.AddCake();
 		}
 
-		if ( other.gameObject.tag == laundryTag ) {
+		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			score.AddLaundryScore();
-			// TODO speedup
+            // speedup
+            StartCoroutine(SpeedUp());
 		}
 	}
+
+
+    IEnumerator SpeedUp() {
+        speed += speedup;
+        yield return new WaitForSeconds(speedupTime);
+
+        speed -= speedup;
+    }
 }
