@@ -32,10 +32,6 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-	void OnMouseDown() {
-		Move(Input.mousePosition);
-	}
-
 	// Update is called once per frame
 	void Update() {
 		foreach ( Touch touch in Input.touches ) {

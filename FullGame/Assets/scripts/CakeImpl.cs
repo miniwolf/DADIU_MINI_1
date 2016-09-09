@@ -2,31 +2,34 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class CakeImpl : MonoBehaviour, Cake {
+public class CakeImpl : MonoBehaviour {
 	private bool couldbeswipe;
 	private Vector2 touchStart;
 	private Vector3 worldAngle;
 	private Vector2 touchEnd;
 	private bool g; // gravity
+	private int factor = 50;
 
 	public int ballSpeed;
 	public Camera cam;
 	public GameObject ball;
 	public Rigidbody ballBody;
-	private int factor = 50;
+	public GameObject parent;
+	public Text debug;
 
 	private Vector3 startPos;
+	private Rigidbody rigid;
 
 	void Start() {
-		GetComponent<Rigidbody>().detectCollisions = false;
+		ballBody.freezeRotation = true;
 	}
 
 	public void OnMouseDown() {
+		Debug.Log("Here");
 		down(Input.mousePosition);
 	}
 
 	private void down(Vector3 position) {
-		Debug.Log("Clicked down");
 		startPos = ball.transform.position;
 	}
 
@@ -38,41 +41,41 @@ public class CakeImpl : MonoBehaviour, Cake {
 		Vector3 endPos = cam.ScreenToWorldPoint(position);
 		RaycastHit hit;
 		if ( Physics.Raycast(cam.ScreenPointToRay(position), out hit) ) {
-			Debug.Log(hit.point);
 			endPos = hit.point;
 		}
 		endPos.y = 0;
 
+		transform.parent = null;
 		Vector3 force = endPos - startPos;
-
-		GetComponent<Rigidbody>().AddForce(force * factor);
+		ballBody.freezeRotation = false;
+		ballBody.constraints = RigidbodyConstraints.FreezePositionY;
+		ballBody.AddForce(force * factor);
 	}
 	
 	// Update is called once per frame
 	public void Update() {
 		if ( Input.touchCount > 0 ) {
-			Touch touch = Input.touches [0];
-			switch (touch.phase) {
-			case TouchPhase.Began:
+			Touch touch = Input.touches[0];
+			if ( touch.phase == TouchPhase.Began ) {
 				down(touch.position);
-				break;
-			case TouchPhase.Ended:
+			} else if ( touch.phase == TouchPhase.Ended ) {
 				up(touch.position);
-				break;
 			}
 		}
 	}
 
-	public void ThrowCake(Vector3 touchEnd) {
-		GetAngle();
-		GetComponent<Rigidbody>().AddForce(new Vector3((worldAngle.x * ballSpeed), (worldAngle.y * ballSpeed), (worldAngle.z * ballSpeed)));
-		/*
-		float distance = Vector3.Distance(ball.transform.position, ballBody.transform.position); 
-		GetComponent<Rigidbody>().AddForce(ball.transform.forward * 100); // shoot
-*/
+	void OnCollisionEnter() {
+		Reset();
 	}
 
-	private void GetAngle() {
-		worldAngle = cam.ScreenToWorldPoint(new Vector3(touchEnd.x, touchEnd.y + 800f, ((cam.nearClipPlane - 100f) * 1.8f)));
+	private void Reset() {
+		transform.parent = parent.transform;
+		gameObject.SetActive(PlayerPrefs.GetInt("numCakes") != 1);
+		transform.position = new Vector3(parent.transform.position.x, transform.position.y, parent.transform.position.z);
+		transform.rotation = new Quaternion();
+
+		ballBody.constraints = RigidbodyConstraints.FreezePosition;
+		ballBody.freezeRotation = true;
+		ballBody.velocity = new Vector3();
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 	public GameObject following;
+	public Cake cake;
 
 	// Use this for initialization
 	private const int ENEMY_CAKE_HIT_DELAY_SECONDS = 2;
@@ -14,28 +15,27 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update (){
-		if (following != null && moving) {
+	void Update() {
+		if ( following != null && moving ) {
 			//transform.position = Vector3.MoveTowards(transform.position, following.transform.position, 0.3f);
 			navAgent.destination = following.transform.position;
 			navAgent.Resume();
-			transform.LookAt (navAgent.nextPosition);
+			transform.LookAt(navAgent.nextPosition);
 		} else {
-			navAgent.destination = gameObject.transform.position; // not move - set position to this object position
+			navAgent.destination = transform.position; // not move - set position to this object position
 		}
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.tag.Equals(Constants.CAKE)) {
-			Destroy (collision.gameObject);
-			StartCoroutine (StopMoving());
+		if ( collision.gameObject.tag.Equals(Constants.CAKE) ) {
+			StartCoroutine(StopMoving());
 		}
 	}
 
 
 	IEnumerator StopMoving() {
 		moving = false;
-		PlayEating ();
+		PlayEating();
 		yield return new WaitForSeconds(ENEMY_CAKE_HIT_DELAY_SECONDS);
 
 		StartMoving();
