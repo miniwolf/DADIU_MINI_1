@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour {
 
 	private void CatchGirl() {
 		moving = false;
+		following.GetComponent<Player>().GotCaught();
 		animator.SetBool(moveAnimation, false);
 		animator.SetTrigger(catchAnimation);
 	}

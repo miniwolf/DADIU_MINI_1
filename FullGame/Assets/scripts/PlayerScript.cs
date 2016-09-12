@@ -4,19 +4,23 @@ using System.Collections;
 using System.Diagnostics;
 
 // TODO implements interface
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour, Player {
 	public int speed = 6;
-	private int speedup ;
 	public int angularSpeed = 120;
-	public Camera cam;
+	public int speedupTime = 1;
 
-	private NavMeshAgent agent;
-	private Stopwatch timer;
+	// External components
+	private Camera cam;
 	private Score score;
 	private CakesText cakeText;
 	private Cake cakeThrowing;
 
-	public int speedupTime = 1;
+	// Internal components
+	private NavMeshAgent agent;
+	private Stopwatch timer;
+
+	private int speedup;
+	private bool hasBeenCaught;
 
 	// Use this for initialization
 	void Start () {
@@ -28,28 +32,17 @@ public class PlayerScript : MonoBehaviour {
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
 		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
-	}
-
-	/// <summary>
-	/// Moves the player agent to a selected position
-	/// </summary>
-	/// <param name="pos">Position selected in the scene</param>
-	private void Move(Vector3 pos) {
-		RaycastHit hit;
-		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
-			if(hit.transform.tag!=Constants.CAKE)
-				agent.destination = hit.point;
-		}
+		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (agent.remainingDistance > 0.1) {
-			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", true);
-		} 
-		else {
-			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", false);
+		if ( hasBeenCaught ) {
+			return;
 		}
+
+		ToggleMoving(agent.remainingDistance > 0.1);
+
 		foreach ( Touch touch in Input.touches ) {
 			Move(touch.position);
 		}
@@ -77,16 +70,35 @@ public class PlayerScript : MonoBehaviour {
 		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			score.AddLaundryScore();
-			// speedup
-			StartCoroutine(SpeedUp());
+			StartCoroutine(SpeedUp()); // Speedup
 		}
 	}
 
-
 	IEnumerator SpeedUp() {
-		speed += speedup;
+		agent.speed += speedup;
 		yield return new WaitForSeconds(speedupTime);
 
-		speed -= speedup;
+		agent.speed -= speedup;
+	}
+
+	/// <summary>
+	/// Moves the player agent to a selected position
+	/// </summary>
+	/// <param name="pos">Position selected in the scene</param>
+	private void Move(Vector3 pos) {
+		RaycastHit hit;
+		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
+			if(hit.transform.tag!=Constants.CAKE)
+				agent.destination = hit.point;
+		}
+	}
+
+	private void ToggleMoving(bool isMoving) {
+		transform.GetComponentInChildren<Animator>().SetBool("isMoving", isMoving);
+	}
+
+	public void GotCaught() {
+		hasBeenCaught = true;
+		ToggleMoving(false);
 	}
 }
