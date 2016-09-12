@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// Set Nav Mesh Agent / stoppign distance to 2.4 (depending on a collider type the troll has)
+/// In collider, set "Is Trigget to true"
+/// </summary>
 public class Enemy : MonoBehaviour {
 	public int stunTime = 2;
 	[Tooltip("Name of the animation toggle to set to true")]
@@ -20,9 +23,6 @@ public class Enemy : MonoBehaviour {
 	private NavMeshAgent navAgent;
 	private Animator animator;
 
-	// we are using this to avoid jittering of troll when he is close to girl or obstacle
-	public bool collidedWithGirl; 
-
 	void Start() {
 		animator = GetComponentInChildren<Animator>();
 		navAgent = GetComponent<NavMeshAgent>();
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if ( following != null && moving && !collidedWithGirl) {
+		if ( following != null && moving) {
 			navAgent.Resume(); // resume agent 
 			navAgent.destination = following.transform.position;
 			gameObject.transform.LookAt(following.transform.position);
@@ -50,11 +50,13 @@ public class Enemy : MonoBehaviour {
 				StartCoroutine(StopMoving());
 				score.AddTrollScore();
 			}
-		}
-
-		if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
+		if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
+			StartCoroutine(StopMoving());
+			score.AddTrollScore();
+		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
 		}
+		
 	}
 
 	IEnumerator StopMoving() {
