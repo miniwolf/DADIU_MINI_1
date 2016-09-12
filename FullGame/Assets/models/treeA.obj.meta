@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 5cbd9b76d6eb34d4a940327b35543f9f
+timeCreated: 1473407535
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: geo_branch011_treeA
+    100002: //RootNode
+    100004: treeA_geo_branch01
+    100006: treeA_geo_branch010
+    100008: treeA_geo_branch02
+    100010: treeA_geo_branch03
+    100012: treeA_geo_branch04
+    100014: treeA_geo_branch05
+    100016: treeA_geo_branch06
+    100018: treeA_geo_branch07
+    100020: treeA_geo_branch08
+    100022: treeA_geo_branch09
+    100024: treeA_tree
+    400000: geo_branch011_treeA
+    400002: //RootNode
+    400004: treeA_geo_branch01
+    400006: treeA_geo_branch010
+    400008: treeA_geo_branch02
+    400010: treeA_geo_branch03
+    400012: treeA_geo_branch04
+    400014: treeA_geo_branch05
+    400016: treeA_geo_branch06
+    400018: treeA_geo_branch07
+    400020: treeA_geo_branch08
+    400022: treeA_geo_branch09
+    400024: treeA_tree
+    2300000: geo_branch011_treeA
+    2300002: treeA_geo_branch01
+    2300004: treeA_geo_branch010
+    2300006: treeA_geo_branch02
+    2300008: treeA_geo_branch03
+    2300010: treeA_geo_branch04
+    2300012: treeA_geo_branch05
+    2300014: treeA_geo_branch06
+    2300016: treeA_geo_branch07
+    2300018: treeA_geo_branch08
+    2300020: treeA_geo_branch09
+    2300022: treeA_tree
+    3300000: geo_branch011_treeA
+    3300002: treeA_geo_branch01
+    3300004: treeA_geo_branch010
+    3300006: treeA_geo_branch02
+    3300008: treeA_geo_branch03
+    3300010: treeA_geo_branch04
+    3300012: treeA_geo_branch05
+    3300014: treeA_geo_branch06
+    3300016: treeA_geo_branch07
+    3300018: treeA_geo_branch08
+    3300020: treeA_geo_branch09
+    3300022: treeA_tree
+    4300000: geo_branch011_treeA
+    4300002: treeA_geo_branch01
+    4300004: treeA_geo_branch010
+    4300006: treeA_geo_branch02
+    4300008: treeA_geo_branch03
+    4300010: treeA_geo_branch04
+    4300012: treeA_geo_branch05
+    4300014: treeA_geo_branch06
+    4300016: treeA_geo_branch07
+    4300018: treeA_geo_branch08
+    4300020: treeA_geo_branch09
+    4300022: treeA_tree
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
