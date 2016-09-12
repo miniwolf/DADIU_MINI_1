@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour {
 		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
 		}
-		
 	}
 
 	IEnumerator StopMoving() {
