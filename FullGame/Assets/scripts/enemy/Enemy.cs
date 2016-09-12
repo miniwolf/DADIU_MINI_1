@@ -41,9 +41,11 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
-			StartCoroutine(StopMoving());
-			score.AddTrollScore();
+		if ( moving ) {
+			if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
+				StartCoroutine(StopMoving());
+				score.AddTrollScore();
+			}
 		}
 
 		if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
