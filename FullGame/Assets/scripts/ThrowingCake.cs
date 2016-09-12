@@ -118,7 +118,6 @@ public class ThrowingCake : MonoBehaviour, Cake {
 		ballBody.constraints = RigidbodyConstraints.FreezeAll;
 		isShooting = false;
 		mayThrow = false;
-		gameObject.SetActive(PlayerPrefs.GetInt("numCakes") != 1);
 	}
 
 	public void SetActive() {

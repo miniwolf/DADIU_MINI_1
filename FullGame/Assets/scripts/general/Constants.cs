@@ -12,4 +12,5 @@ public class Constants {
 	public const string CAKETEXT = "CakeText";
 	public const string SCORE = "Score";
 	public const string GROUNDLAYER = "GroundLayer";
+	public const string ARROW = "Arrow";
 }

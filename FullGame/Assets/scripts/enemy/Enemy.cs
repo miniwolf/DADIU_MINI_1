@@ -44,8 +44,6 @@ public class Enemy : MonoBehaviour {
             StartMoving();
 			navAgent.destination = following.transform.position;
 			gameObject.transform.LookAt(following.transform.position);
-			// troll object model is 90 degrees off, which we fix by rotating it by 90 degree
-			gameObject.transform.Rotate(new Vector3(0, 90, 0));
 		} else {
 			navAgent.Stop (); // stop agent from evaluating path
 		}
