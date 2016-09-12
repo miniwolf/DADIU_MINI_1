@@ -2,24 +2,35 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-	public GameObject following;
-	public Cake cake;
-	private ScoreInterface score;
-
-	// Use this for initialization
 	public int stunTime = 2;
+	[Tooltip("Name of the animation toggle to set to true")]
+	public string moveAnimation;
+	[Tooltip("Name of the animation toggle to set to true")]
+	public string eatingAnimation;
+	[Tooltip("Name of the animation toggle to set to true")]
+	public string catchAnimation;
+
 	private bool moving = true;
+
+	// External components
+	private ScoreInterface score;
+	private GameObject following;
+
+	// Personal components
 	private NavMeshAgent navAgent;
+	private Animator animator;
 
 	void Start() {
+		animator = GetComponentInChildren<Animator>();
 		navAgent = GetComponent<NavMeshAgent>();
+
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
+		following = GameObject.FindGameObjectWithTag(Constants.PLAYER);
 	}
 	
 	// Update is called once per frame
 	void Update() {
 		if ( following != null && moving ) {
-			//transform.position = Vector3.MoveTowards(transform.position, following.transform.position, 0.3f);
 			navAgent.destination = following.transform.position;
 			navAgent.Resume();
 			transform.LookAt(navAgent.nextPosition);
@@ -33,22 +44,37 @@ public class Enemy : MonoBehaviour {
 			StartCoroutine(StopMoving());
 			score.AddTrollScore();
 		}
-	}
 
+		if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
+			CatchGirl();
+		}
+	}
 
 	IEnumerator StopMoving() {
 		moving = false;
-		PlayEating();
+		animator.SetBool(moveAnimation, false);
+		StartEating();
 		yield return new WaitForSeconds(stunTime);
-
+		StopEating();
 		StartMoving();
 	}
 
-	private void PlayEating() {
+	private void StartEating() {
+		animator.SetBool(eatingAnimation, true);
+	}
 
+	private void StopEating() {
+		animator.SetBool(eatingAnimation, false);
 	}
 
 	private void StartMoving() {
 		moving = true;
+		animator.SetBool(moveAnimation, true);
+	}
+
+	private void CatchGirl() {
+		moving = false;
+		animator.SetBool(moveAnimation, false);
+		animator.SetTrigger(catchAnimation);
 	}
 }
