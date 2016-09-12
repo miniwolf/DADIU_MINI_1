@@ -5,6 +5,11 @@ using System.Collections;
 /// In collider, set "Is Trigget to true"
 /// </summary>
 public class Enemy : MonoBehaviour {
+    public float dist4SpeedIncrease;
+    public float normalSpeed;
+    public float accelerationFactor;
+
+	// Use this for initialization
 	public int stunTime = 2;
 	[Tooltip("Name of the animation toggle to set to true")]
 	public string moveAnimation;
@@ -35,6 +40,8 @@ public class Enemy : MonoBehaviour {
 	void Update() {
 		if ( following != null && moving) {
 			navAgent.Resume(); // resume agent 
+            UpdateSpeed();
+            StartMoving();
 			navAgent.destination = following.transform.position;
 			gameObject.transform.LookAt(following.transform.position);
 			// troll object model is 90 degrees off, which we fix by rotating it by 90 degree
@@ -50,6 +57,8 @@ public class Enemy : MonoBehaviour {
 				StartCoroutine(StopMoving());
 				score.AddTrollScore();
 			}
+		}
+
 		if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
 			StartCoroutine(StopMoving());
 			score.AddTrollScore();
@@ -57,6 +66,18 @@ public class Enemy : MonoBehaviour {
 			CatchGirl();
 		}
 	}
+
+    private void UpdateSpeed() {
+		if ( GetDistanceToGirl() > dist4SpeedIncrease ) {
+			navAgent.speed = GetDistanceToGirl() / dist4SpeedIncrease * normalSpeed * (1 + accelerationFactor);
+		} else {
+			navAgent.speed = normalSpeed;
+		}
+    }
+
+    public float GetDistanceToGirl() {
+        return Vector3.Distance(following.transform.position, transform.position);
+    }
 
 	IEnumerator StopMoving() {
 		moving = false;
