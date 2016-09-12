@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour {
 	private NavMeshAgent navAgent;
 	private Animator animator;
 
+	// we are using this to avoid jittering of troll when he is close to girl or obstacle
+	public bool collidedWithGirl; 
+
 	void Start() {
 		animator = GetComponentInChildren<Animator>();
 		navAgent = GetComponent<NavMeshAgent>();
@@ -27,16 +30,17 @@ public class Enemy : MonoBehaviour {
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
 		following = GameObject.FindGameObjectWithTag(Constants.PLAYER);
 	}
-	
+
 	// Update is called once per frame
 	void Update() {
-		if ( following != null && moving ) {
-			StartMoving();
+		if ( following != null && moving && !collidedWithGirl) {
+			navAgent.Resume(); // resume agent 
 			navAgent.destination = following.transform.position;
-			navAgent.Resume();
-			transform.LookAt(navAgent.nextPosition);
+			gameObject.transform.LookAt(following.transform.position);
+			// troll object model is 90 degrees off, which we fix by rotating it by 90 degree
+			gameObject.transform.Rotate(new Vector3(0, 90, 0));
 		} else {
-			navAgent.destination = transform.position; // not move - set position to this object position
+			navAgent.Stop (); // stop agent from evaluating path
 		}
 	}
 
