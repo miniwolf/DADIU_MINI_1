@@ -12,8 +12,8 @@ public class PlayerScript : MonoBehaviour {
 
 	private NavMeshAgent agent;
 	private Stopwatch timer;
-	private ScoreInterface score;
-	private CakesTextInterface cakeText;
+	private Score score;
+	private CakesText cakeText;
 	public int speedupTime = 1;
 
 	// Use this for initialization
@@ -23,8 +23,8 @@ public class PlayerScript : MonoBehaviour {
 		agent.angularSpeed = angularSpeed;
 		speedup = 2 * speed;
 
-		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesTextInterface>();
-		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
+		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
+		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
 	}
 
 	/// <summary>
@@ -34,12 +34,19 @@ public class PlayerScript : MonoBehaviour {
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
 		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
-			agent.destination = hit.point;
+			if(hit.transform.tag!=Constants.CAKE)
+				agent.destination = hit.point;
 		}
 	}
 
 	// Update is called once per frame
 	void Update() {
+		if (agent.remainingDistance > 0.1) {
+			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", true);
+		} 
+		else {
+			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", false);
+		}
 		foreach ( Touch touch in Input.touches ) {
 			Move(touch.position);
 		}

@@ -20,7 +20,12 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	private bool isShooting = false;
 	private bool mayThrow = false;
 
+	private Animator animator;
+
 	public void Start() {
+
+		animator = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponentInChildren<Animator>();
+
 		ballBody = gameObject.GetComponent<Rigidbody>();
 		startRotation = ballBody.rotation;
 
@@ -34,10 +39,12 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 	public void OnMouseUp() {
 		up(Input.mousePosition);
+		animator.SetTrigger ("Throw");
 	}
 
 	// Update is called once per frame
 	public void Update() {
+		
 		RaycastHit hit;
 
 		if ( Input.touchCount > 0 ) {
@@ -60,17 +67,19 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 
 	private void up(Vector3 position) {
-		Vector3 endPos = playerCam.ScreenToWorldPoint(position);
-		RaycastHit hit;
-		if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit) ) {
-			endPos = hit.point;
-		}
-		endPos.y = 0;
+		if ( !isShooting ) {
+			Vector3 endPos = playerCam.ScreenToWorldPoint(position);
+			RaycastHit hit;
+			if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit) ) {
+				endPos = hit.point;
+			}
+			endPos.y = 0;
 
-		transform.parent = null;
-		Vector3 force = endPos - transform.position;
-		ballBody.constraints = RigidbodyConstraints.FreezePositionY;
-		ballBody.AddForce(force * factor);
+			transform.parent = null;
+			Vector3 force = endPos - transform.position;
+			ballBody.constraints = RigidbodyConstraints.FreezePositionY;
+			ballBody.AddForce(force * factor);
+		}
 		isShooting = true;
 		mayThrow = false;
 	}
@@ -87,7 +96,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 		gameObject.SetActive(PlayerPrefs.GetInt("numCakes") != 1);
 		transform.rotation = startRotation;
 
-		ballBody.constraints = RigidbodyConstraints.FreezePosition;
+		ballBody.constraints = RigidbodyConstraints.FreezeAll;
 		ballBody.velocity = Vector3.zero;
 		isShooting = false;
 	}

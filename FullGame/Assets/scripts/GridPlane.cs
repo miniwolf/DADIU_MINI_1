@@ -113,7 +113,7 @@ public class GridPlane : MonoBehaviour,GridInterface  {
 		}
 
 		ObstructionPlaced (randX, randY);
-		print ("RandPos " + randX + " " + randY); 
+//		print ("RandPos " + randX + " " + randY); 
 		return new Vector3 (theGrid [randX] [randY].rect.center.x, yPlacementOfGO, theGrid [randX] [randY].rect.center.y);
 	}
 
