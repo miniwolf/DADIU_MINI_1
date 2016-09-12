@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if ( following != null && moving ) {
+			StartMoving();
 			navAgent.destination = following.transform.position;
 			navAgent.Resume();
 			transform.LookAt(navAgent.nextPosition);
