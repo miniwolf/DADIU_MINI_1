@@ -9,10 +9,16 @@ public interface CakesTextInterface {
 	/// <summary>
 	/// Adds 1 when a cake is taken.
 	/// </summary>
-	void AddCake ();
+	void AddCake();
 
 	/// <summary>
 	/// Removes 1 when a cake is thrown.
 	/// </summary>
-	void RemoveCake ();
+	void RemoveCake();
+
+	/// <summary>
+	/// Gets the number cakes.
+	/// </summary>
+	/// <returns>The number cakes.</returns>
+	int GetNumCakes();
 }

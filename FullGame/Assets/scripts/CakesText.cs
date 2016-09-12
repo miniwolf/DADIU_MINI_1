@@ -35,4 +35,8 @@ public class CakesText : MonoBehaviour, CakesTextInterface {
 			PlayerPrefs.SetInt("numCakes", numCakes);
 		}
 	}
+
+	public int GetNumCakes() {
+		return numCakes;
+	}
 }

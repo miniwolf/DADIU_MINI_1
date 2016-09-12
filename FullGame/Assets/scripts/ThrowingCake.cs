@@ -26,6 +26,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	private bool mayThrow = false;
 
 	private Animator animator;
+	private CakesTextInterface cakeText;
 
 	public void Start() {
 		
@@ -38,6 +39,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 		playerCam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponent<Transform>();
+		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
 	}
 
 	public void OnMouseDown() {
@@ -50,7 +52,6 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 	
 	public void Update() {
-
 		RaycastHit hit;
 
 		if(Input.touchCount > 0) {
@@ -87,6 +88,8 @@ public class ThrowingCake : MonoBehaviour, Cake {
 			ballBody.constraints = RigidbodyConstraints.FreezePositionY;
 			ballBody.AddForce(force.normalized * speed);
 		}
+
+		cakeText.RemoveCake();
 		isShooting = true;
 		mayThrow = false;
 	}
@@ -108,12 +111,18 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 
 	private void Reset() {
-		ballBody.velocity = Vector3.zero;
+		if ( cakeText.GetNumCakes() == 0 ) {
+			gameObject.SetActive(false);
+		}
 		transform.rotation = startRotation;
 		ballBody.constraints = RigidbodyConstraints.FreezeAll;
 		isShooting = false;
 		mayThrow = false;
 		gameObject.SetActive(PlayerPrefs.GetInt("numCakes") != 1);
+	}
+
+	public void SetActive() {
+		gameObject.SetActive(true);
 	}
 
 	public bool MayThrow() {

@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour {
 	private Stopwatch timer;
 	private Score score;
 	private CakesText cakeText;
+	private Cake cakeThrowing;
+
 	public int speedupTime = 1;
 
 	// Use this for initialization
@@ -25,6 +27,7 @@ public class PlayerScript : MonoBehaviour {
 
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
+		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
 	}
 
 	/// <summary>
@@ -68,6 +71,7 @@ public class PlayerScript : MonoBehaviour {
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			cakeText.AddCake();
+			cakeThrowing.SetActive();
 		}
 
 		if ( other.gameObject.tag == Constants.LAUNDRY ) {
