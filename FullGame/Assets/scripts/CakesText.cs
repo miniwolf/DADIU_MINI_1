@@ -10,29 +10,34 @@ using UnityEngine.UI;
 public class CakesText : MonoBehaviour, CakesTextInterface {
 	private int numCakes;
 	private Text text;
-	public Score score;
+	private ScoreInterface score;
 
 	void Start() {
-		text = GetComponentInChildren<Text> ();
+		text = GetComponent<Text>();
+		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
+
 		// number of initial cakes is set to 0
-		numCakes = 0;
-		PlayerPrefs.SetInt("numCakes", 0);
+		SetCakes();
 	}
 
 	void Update() {
 		text.text = "" + PlayerPrefs.GetInt("numCakes");
 	}
 
+	private void SetCakes() {
+		PlayerPrefs.SetInt("numCakes", numCakes);
+	}
+
 	public void AddCake() {
 		numCakes++;
-		PlayerPrefs.SetInt("numCakes", numCakes);
-		score.AddCakesScore ();
+		SetCakes();
+		score.AddCakesScore();
 	}
 
 	public void RemoveCake() {
 		if ( numCakes > 0 ) {
 			numCakes--;
-			PlayerPrefs.SetInt("numCakes", numCakes);
+			SetCakes();
 		}
 	}
 

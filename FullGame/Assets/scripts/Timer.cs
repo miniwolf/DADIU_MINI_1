@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate() {
 		timeLeft = startingTime - (int)Time.timeSinceLevelLoad;
 		text.text = "00:" + timeLeft;
 		if (timeLeft < 10) {

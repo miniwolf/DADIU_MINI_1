@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
-	public GameObject player;
+	private GameObject player;
 
 	void Start() {
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER);
@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3(player.transform.position.x-15, player.transform.position.y + 12, player.transform.position.z);
+		Vector3 playerPos = player.transform.position;
+		transform.position = new Vector3(playerPos.x - 15, playerPos.y + 12, playerPos.z);
 	}
 }

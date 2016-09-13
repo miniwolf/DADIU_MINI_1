@@ -3,52 +3,44 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Arrow : MonoBehaviour, ArrowInterface {
-	GameObject enemy,player;
-	Camera cam;
-	Vector3 dir;
-	Vector3 screenDir;
-	Vector3 pos;
-	float angle;
-	bool isEnemyVisible = false;
+	private GameObject enemy, player;
+	private Camera cam;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		enemy = GameObject.FindGameObjectWithTag(Constants.ENEMY);
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER);
 		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
+		gameObject.GetComponent<Image>().enabled = true;
 	}
 
 	// Update is called once per frame
 	void Update() {
-		isEnemyVisible = GameObject.FindGameObjectWithTag("EnemyRenderer").GetComponent<Renderer>().isVisible;
-
-		if ( !isEnemyVisible ) {
-			DisplayArrow();
-			GetDirAndPlaceArrow();
-		} else {
-			Debug.Log("Should remove");
-			RemoveArrow();
+		bool isEnemyVisible = GameObject.FindGameObjectWithTag("EnemyRenderer").GetComponent<Renderer>().isVisible;
+		if ( isEnemyVisible ) {
+			ToggleArrow(false);
 		}
+
+		GetDirAndPlaceArrow();
 	}
 
-	
-	public void DisplayArrow(){
-		gameObject.GetComponent<Image>().enabled = true;
+	private void ToggleArrow(bool arrowShown) {
+		gameObject.GetComponent<Image>().enabled = arrowShown;
 	}
 	
-	void RemoveArrow(){
-		gameObject.GetComponent<Image>().enabled = false;
+	public void DisplayArrow() {
+		ToggleArrow(true);
 	}
 
 	void GetDirAndPlaceArrow(){
-		pos = cam.WorldToViewportPoint(enemy.transform.position);
-		pos.x = Mathf.Clamp (pos.x,0.1f,0.9f);
-		pos.y = Mathf.Clamp (pos.y,0.1f,0.9f);
-		pos.z = Mathf.Clamp (pos.z, 0.1f, 0.9f);
+		Vector3 pos = cam.WorldToViewportPoint(enemy.transform.position);
+		pos.x = Mathf.Clamp(pos.x, .1f, .9f);
+		pos.y = Mathf.Clamp(pos.y, .1f, .9f);
+		pos.z = Mathf.Clamp(pos.z, .1f, .9f);
 		transform.position = cam.ViewportToScreenPoint(pos);
 
-		dir = enemy.transform.position - player.transform.position;
-		angle = Mathf.Atan2 (dir.z,dir.x) * Mathf.Rad2Deg;
-		gameObject.transform.rotation = Quaternion.AngleAxis (angle+90, Vector3.forward);
+		Vector3 dir = enemy.transform.position - player.transform.position;
+		float angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg;
+		gameObject.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
 	}
 }

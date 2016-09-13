@@ -2,10 +2,17 @@
 using System.Collections;
 
 public class EnemyRenderer : MonoBehaviour {
+	GameObject arrow;
+	void Start() {
+		arrow = GameObject.FindGameObjectWithTag(Constants.ARROW);
+	}
+
 	void OnBecameInvisible() {
-		GameObject arrowObject = GameObject.FindGameObjectWithTag(Constants.ARROW);
-		ArrowInterface aInt = arrowObject.GetComponent<ArrowInterface>();
-		aInt.DisplayArrow();
+		Debug.Log("Should appear");
+		if ( arrow != null ) {
+			arrow.GetComponent<ArrowInterface>().DisplayArrow();
+		} else {
+			Debug.Log("No arrow");
+		}
 	}
 }
-

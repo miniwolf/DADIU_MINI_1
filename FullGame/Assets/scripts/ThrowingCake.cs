@@ -7,13 +7,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	[Range(1000, 10000)]
 	public int speed = 150;
 
-	// TODO: Should be deleted
-	//public Text debug;
-
-
 	private LayerMask layerMask;
-
-
 
 	private Vector3 startPos;
 	private Quaternion startRotation;
@@ -57,31 +51,30 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	public void Update() {
 		RaycastHit hit;
 
-		if(Input.touchCount > 0) {
+		if ( Input.touchCount > 0 ) {
 			Touch touch = Input.touches[0];
-			if(Physics.Raycast(playerCam.ScreenPointToRay(touch.position), out hit)
-				&& hit.transform.tag == Constants.CAKEICON) {
-				if(touch.phase == TouchPhase.Began) {
+			if ( Physics.Raycast(playerCam.ScreenPointToRay(touch.position), out hit)
+				&& hit.transform.tag == Constants.CAKEICON ) {
+				if ( touch.phase == TouchPhase.Began ) {
 					down(touch.position);
 				}
 
 			}
-			if(mayThrow && touch.phase == TouchPhase.Ended) {
+			if ( mayThrow && touch.phase == TouchPhase.Ended ) {
 				up(touch.position);
 			}
 		}
 
-		if(!isShooting) {
+		if ( !isShooting ) {
 			transform.position = new Vector3(player.position.x, transform.position.y, player.position.z);
 		}
 	}
 
 	private void up(Vector3 position) {
-		if(!isShooting) {
+		if ( !isShooting ) {
 			Vector3 endPos = playerCam.ScreenToWorldPoint(position);
 			RaycastHit hit;
-			if(Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask)) {
-				//print(hit.transform.name);
+			if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask) ) {
 				endPos = hit.point;
 			}
 			endPos.y = 0;
@@ -99,8 +92,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 	private void down(Vector3 position) {
 		RaycastHit hit;
-		if(Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask)) {
-			//print(hit.transform.name);
+		if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask) ) {
 			startPos = hit.point;
 		}
 		startPos.y = 0;
@@ -108,7 +100,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 
 	public void OnCollisionStay() {
-		if(isShooting) {
+		if ( isShooting ) {
 			Reset();
 		}
 	}

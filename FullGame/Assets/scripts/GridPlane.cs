@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class GridPlane : MonoBehaviour, GridInterface {
-
-
 	public int gridSizeX = 10, gridSizeY = 10;
 	public float yPlacementOfGO = 0;
 	bool isGridInit = false;
@@ -12,32 +10,29 @@ public class GridPlane : MonoBehaviour, GridInterface {
 	public GridTile[][] theGrid;
 
 	void Awake(){
-		if (!isGridInit) {
+		if ( !isGridInit ) {
 			theGrid = new GridTile[gridSizeX][];
-			for (int i = 0; i < theGrid.Length; i++) {
-				theGrid [i] = new GridTile[gridSizeY];
+			for ( int i = 0; i < theGrid.Length; i++ ) {
+				theGrid[i] = new GridTile[gridSizeY];
 			}
-			for (int i = 0; i < theGrid.Length; i++) {
-				for (int u = 0; u < theGrid [i].Length; u++) {
-					theGrid [i] [u] = new GridTile ();
+			for ( int i = 0; i < theGrid.Length; i++ ) {
+				for ( int u = 0; u < theGrid[i].Length; u++ ) {
+					theGrid[i][u] = new GridTile();
 				}
 			}
 		}
 
-		if(gameObject.layer != LayerMask.NameToLayer(Constants.GROUNDLAYER)) {
+		if ( gameObject.layer != LayerMask.NameToLayer(Constants.GROUNDLAYER) ) {
 			Debug.LogError("The playing field is missing a layer called \"GroundLayer\", add it to the level space");
 		}
-
-
 	}
 
 	// Use this for initialization
 	void Start () {
-		if (!isGridInit) {
-			InitGrid ();
+		if ( !isGridInit ) {
+			InitGrid();
 		}
 	}
-
 
 	/// <summary>
 	/// Initializes the grid, is to be called once, in awake.
@@ -58,6 +53,7 @@ public class GridPlane : MonoBehaviour, GridInterface {
 		theGrid[0][0].pos = new Vector2(initPos.x + gameObject.transform.localScale.x / gridSizeX / 2, initPos.y + gameObject.transform.localScale.y / gridSizeY / 2);
 		theGrid[0][0].rect.center = theGrid[0][0].pos;
 	}
+
 	/// <summary>
 	/// Converts world coordinates to grid coordinates.
 	/// </summary>
@@ -68,46 +64,51 @@ public class GridPlane : MonoBehaviour, GridInterface {
 		/*float x = (gameObject.transform.localScale.x / 2 - worldPos.x) / gameObject.transform.localScale.x / gridSizeX;
 		float y = (gameObject.transform.localScale.y/2 - worldPos.z)/gameObject.transform.localScale.y/gridSizeY;
 		*/
-		float x = (((worldPos.x - gameObject.transform.localScale.x / gridSizeX / 2) + gameObject.transform.localScale.x / 2) / (gameObject.transform.localScale.x / gridSizeX));
-		float y = (((worldPos.z - gameObject.transform.localScale.y / gridSizeY / 2) + gameObject.transform.localScale.y / 2) / (gameObject.transform.localScale.y / gridSizeY));
+		Vector3 locScale = transform.localScale;
+		float x = ComputeGridPos(worldPos.x, locScale.x, gridSizeX);
+		float y = ComputeGridPos(worldPos.y, locScale.y, gridSizeY);
 
 		return (new Vector2(x, y));
 	}
 
+	float ComputeGridPos(float worldPosAxis, float scaleAxis, int gridSize) {
+		return (((worldPosAxis - scaleAxis / gridSize * .5f) + scaleAxis * .5f) / (scaleAxis / gridSize));
+	}
+
 	///Draws the rects in the scene view while in play mode
 	public void OnDrawGizmos() {
-		if(!Application.isPlaying) return;
-		for(int i = 0; i < theGrid.Length; i++) {
-			for(int u = 0; u < theGrid[i].Length; u++) {
-				if(!theGrid[i][u].isObstructed) {
-					Gizmos.color = Color.blue;
-					Gizmos.DrawWireCube(new Vector3(theGrid[i][u].rect.center.x, 0, theGrid[i][u].rect.center.y), new Vector3(theGrid[i][u].rect.size.x, 0, theGrid[i][u].rect.size.y));
-				} else if(theGrid[i][u].isObstructed) {
-					Gizmos.color = Color.red;
-					Gizmos.DrawWireCube(new Vector3(theGrid[i][u].rect.center.x, 0, theGrid[i][u].rect.center.y), new Vector3(theGrid[i][u].rect.size.x, 0, theGrid[i][u].rect.size.y));
-				}
+		if ( !Application.isPlaying ) {
+			return;
+		}
 
+		for (int i = 0; i < theGrid.Length; i++ ) {
+			for ( int u = 0; u < theGrid[i].Length; u++ ) {
+				Gizmos.color = theGrid[i][u].isObstructed ? Color.red : Color.blue;
+				DrawCube(i, u);
 			}
 		}
 	}
 
-
+	private void DrawCube(int i, int u) {
+		Gizmos.DrawWireCube(new Vector3(theGrid[i][u].rect.center.x, 0, theGrid[i][u].rect.center.y), new Vector3(theGrid[i][u].rect.size.x, 0, theGrid[i][u].rect.size.y));
+	}
 
 	public Vector2 getGridPos() {
 		return Vector2.zero;
 	}
+
 	/// <summary>
 	/// Returns the center, as a vector 3, of the grid at the specified coordinate
 	/// </summary>
 	/// <returns>The world position in Vector3.</returns>
 	/// <param name="gridCoords">Grid coordinates.</param>
 	public Vector3 getWorldPos(int x, int y) {
-		return new Vector3(theGrid[x][y].rect.center.x, gameObject.transform.position.y, theGrid[x][y].rect.center.y);
+		return new Vector3(theGrid[x][y].rect.center.x, transform.position.y, theGrid[x][y].rect.center.y);
 	}
 
 	public Vector3 getSpawnPoint() {
 		int iterator = 0;
-		Vector2 randPoints = RandGridPoints();
+		Vector2 randPoints;
 		int randX, randY;
 		do {
 			randPoints = RandGridPoints();
@@ -115,13 +116,13 @@ public class GridPlane : MonoBehaviour, GridInterface {
 			randY = Mathf.RoundToInt(randPoints.y);
 			theGrid[randX][randY].CheckIfObstructed();
 			iterator++;
-		} while(theGrid[randX][randY].isObstructed && iterator < 1000);
-		if(iterator >= 1000) {
+		} while ( theGrid[randX][randY].isObstructed && iterator < 1000 );
+
+		if ( iterator >= 1000 ) {
 			return Vector3.zero;
 		}
 
 		ObstructionPlaced(randX, randY);
-		//		print ("RandPos " + randX + " " + randY); 
 		return new Vector3(theGrid[randX][randY].rect.center.x, yPlacementOfGO, theGrid[randX][randY].rect.center.y);
 	}
 
@@ -139,11 +140,4 @@ public class GridPlane : MonoBehaviour, GridInterface {
 	public void NoLongerObstructed(int x, int y) {
 		theGrid[x][y].isObstructed = false;
 	}
-
-	/*public bool IsTileObstructed(Vector2 pos){
-		//if(theGrid[][]
-	}*/
-
-
-
 }
