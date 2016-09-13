@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour,MainMenuInterface {
+public class MainMenu : MonoBehaviour {
 
 	GameObject blockingClickOnPause;
 	bool shouldShowMenu = true;
@@ -45,6 +45,10 @@ public class MainMenu : MonoBehaviour,MainMenuInterface {
 
 	public void ShowIntroStory(){
 		introStory.GetComponent<Image>().enabled = true;
+		foreach(Transform go in introStory.GetComponentInChildren<Transform>()){
+			go.GetComponent<Image> ().enabled = true;
+		}
+		introStory.GetComponent<Image> ();
 
 		PlayerPrefs.SetInt ("ShouldShowIntroStory", 1);
 	}
@@ -55,12 +59,15 @@ public class MainMenu : MonoBehaviour,MainMenuInterface {
 			go.GetComponent<Image> ().enabled = false;
 		}
 		introStory.GetComponent<Image>().enabled = false;
+		introStory.GetComponent<IntroStory> ().ResetImage ();
 	}
 	public void ShowTutorial (){ 
 		tutorial.GetComponent<Image> ().enabled = true;
+		tutorial.GetComponent<TutorialImages> ().ResetImage ();
 	}
 	public void HideTutorial(){
 		tutorial.GetComponent<Image> ().enabled = false;
+		tutorial.GetComponent<TutorialImages> ().ResetImage ();
 	}
 
 	public void StartGame(){

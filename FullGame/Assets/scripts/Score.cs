@@ -31,7 +31,7 @@ public class Score : MonoBehaviour, ScoreInterface {
 			PlayerPrefs.SetInt("highscore", highscore);
 		}
 		// show score on screen
-		text.text = "Score: " + score;
+		text.text = score + " Points";
 	}
 
 	public void AddLaundryScore() {

@@ -8,6 +8,6 @@ using UnityEngine.UI;
 public class Highscore : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
-		GetComponent<Text>().text = "Highscore: " + PlayerPrefs.GetInt("highscore");
+		GetComponent<Text>().text = PlayerPrefs.GetInt("highscore") + " Highscore";
 	}
 }
