@@ -16,4 +16,5 @@ public class Constants {
 	public const string ARROW = "Arrow";
 	public const string BLOCKINGCLICKS = "UIBlockClick";
 	public const string OBSTACLE = "Obstacle";
+    public const string SOUND = "Sound";
 }

@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
 	void Start() {
 		animator = GetComponentInChildren<Animator>();
 		navAgent = GetComponent<NavMeshAgent>();
-
+        AkSoundEngine.PostEvent("trollRoar", GameObject.FindGameObjectWithTag(Constants.SOUND));  
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
 		following = GameObject.FindGameObjectWithTag(Constants.PLAYER);
 	}
@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour {
 			navAgent.Resume(); // resume agent 
             UpdateSpeed();
             StartMoving();
-			navAgent.destination = following.transform.position;
-			gameObject.transform.LookAt(following.transform.position);
+            navAgent.destination = following.transform.position;
+			transform.LookAt(navAgent.nextPosition);
 		} else {
 			navAgent.Stop (); // stop agent from evaluating path
 		}
@@ -53,7 +53,8 @@ public class Enemy : MonoBehaviour {
 		if ( moving ) {
 			if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
 				StartCoroutine(StopMoving());
-				score.AddTrollScore();
+                AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
+                score.AddTrollScore();
 			}
 		}
 
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour {
 			score.AddTrollScore();
 		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
+			AkSoundEngine.PostEvent("trollCatchLaughter", GameObject.FindGameObjectWithTag(Constants.SOUND));
 		}
 	}
 
@@ -88,11 +90,13 @@ public class Enemy : MonoBehaviour {
 
 	private void StartEating() {
 		animator.SetBool(eatingAnimation, true);
-	}
+        AkSoundEngine.PostEvent("trollEating", GameObject.FindGameObjectWithTag(Constants.SOUND));
+    }
 
 	private void StopEating() {
 		animator.SetBool(eatingAnimation, false);
-	}
+        AkSoundEngine.PostEvent("trollGrowl", GameObject.FindGameObjectWithTag(Constants.SOUND));
+    }
 
 	private void StartMoving() {
 		moving = true;
@@ -104,5 +108,5 @@ public class Enemy : MonoBehaviour {
 		following.GetComponent<Player>().GotCaught();
 		animator.SetBool(moveAnimation, false);
 		animator.SetTrigger(catchAnimation);
-	}
+    }
 }

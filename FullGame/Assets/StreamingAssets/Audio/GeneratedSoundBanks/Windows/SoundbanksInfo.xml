@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="118">
+	<RootPaths>
+		<ProjectRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
+			<ShortName>MAIN</ShortName>
+			<Path>MAIN.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3500283897" Name="auntieFootstep" ObjectPath="\Events\Default Work Unit\auntieFootstep"/>
+				<Event Id="2277583578" Name="auntieGasp" ObjectPath="\Events\Default Work Unit\auntieGasp"/>
+				<Event Id="19389036" Name="auntieMoveClick" ObjectPath="\Events\Default Work Unit\auntieMoveClick"/>
+				<Event Id="329248667" Name="auntiePickUpCake" ObjectPath="\Events\Default Work Unit\auntiePickUpCake"/>
+				<Event Id="3621737089" Name="auntiePickUpClothes" ObjectPath="\Events\Default Work Unit\auntiePickUpClothes"/>
+				<Event Id="4278306412" Name="auntieScream" ObjectPath="\Events\Default Work Unit\auntieScream"/>
+				<Event Id="3666468717" Name="auntieThrow" ObjectPath="\Events\Default Work Unit\auntieThrow"/>
+				<Event Id="3638507867" Name="forestSoundscape" ObjectPath="\Events\Default Work Unit\forestSoundscape"/>
+				<Event Id="3711598968" Name="menuClick" ObjectPath="\Events\Default Work Unit\menuClick"/>
+				<Event Id="835295888" Name="trollFootstep" ObjectPath="\Events\Default Work Unit\trollFootstep" MaxAttenuation="50.000000"/>
+				<Event Id="306690129" Name="trollGrowl" ObjectPath="\Events\Default Work Unit\trollGrowl" MaxAttenuation="50.000000"/>
+				<Event Id="1173430014" Name="trollHitByCake" ObjectPath="\Events\Default Work Unit\trollHitByCake" MaxAttenuation="50.000000"/>
+				<Event Id="1067378438" Name="trollRoar" ObjectPath="\Events\Default Work Unit\trollRoar" MaxAttenuation="50.000000"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="22198494" Language="SFX">
+					<ShortName>footstep_5.wav</ShortName>
+					<Path>SFX\footstep_5_7B751375.wem</Path>
+				</File>
+				<File Id="65494664" Language="SFX">
+					<ShortName>footstep_1.wav</ShortName>
+					<Path>SFX\footstep_1_C13129E7.wem</Path>
+				</File>
+				<File Id="80040531" Language="SFX">
+					<ShortName>auntie_gasp_3.wav</ShortName>
+					<Path>SFX\auntie_gasp_3_9E69E797.wem</Path>
+				</File>
+				<File Id="116425071" Language="SFX">
+					<ShortName>footstep_branch_3.wav</ShortName>
+					<Path>SFX\footstep_branch_3_CAD0F03D.wem</Path>
+				</File>
+				<File Id="185832494" Language="SFX">
+					<ShortName>click_3.wav</ShortName>
+					<Path>SFX\click_3_9E69E797.wem</Path>
+				</File>
+				<File Id="194033676" Language="SFX">
+					<ShortName>troll_wraa_2.wav</ShortName>
+					<Path>SFX\troll_wraa_2_9E69E797.wem</Path>
+				</File>
+				<File Id="283808173" Language="SFX">
+					<ShortName>troll_growl_3.wav</ShortName>
+					<Path>SFX\troll_growl_3_9E69E797.wem</Path>
+				</File>
+				<File Id="314772158" Language="SFX">
+					<ShortName>clothes_1.wav</ShortName>
+					<Path>SFX\clothes_1_9E69E797.wem</Path>
+				</File>
+				<File Id="353953596" Language="SFX">
+					<ShortName>click_2.wav</ShortName>
+					<Path>SFX\click_2_657A035A.wem</Path>
+				</File>
+				<File Id="391961493" Language="SFX">
+					<ShortName>auntie_gasp_1.wav</ShortName>
+					<Path>SFX\auntie_gasp_1_9E69E797.wem</Path>
+				</File>
+				<File Id="401517112" Language="SFX">
+					<ShortName>footstep_branch_4.wav</ShortName>
+					<Path>SFX\footstep_branch_4_9E69E797.wem</Path>
+				</File>
+				<File Id="452347185" Language="SFX">
+					<ShortName>troll_footstep_4.wav</ShortName>
+					<Path>SFX\troll_footstep_4_9E69E797.wem</Path>
+				</File>
+				<File Id="478478280" Language="SFX">
+					<ShortName>footstep_branch_6.wav</ShortName>
+					<Path>SFX\footstep_branch_6_C7F92421.wem</Path>
+				</File>
+				<File Id="495087963" Language="SFX">
+					<ShortName>troll_footstep_1.wav</ShortName>
+					<Path>SFX\troll_footstep_1_9E69E797.wem</Path>
+				</File>
+				<File Id="544886190" Language="SFX">
+					<ShortName>footstep_3.wav</ShortName>
+					<Path>SFX\footstep_3_392EE56A.wem</Path>
+				</File>
+				<File Id="548860741" Language="SFX">
+					<ShortName>auntie_gasp_6.wav</ShortName>
+					<Path>SFX\auntie_gasp_6_9E69E797.wem</Path>
+				</File>
+				<File Id="607362798" Language="SFX">
+					<ShortName>footstep_4.wav</ShortName>
+					<Path>SFX\footstep_4_9533C134.wem</Path>
+				</File>
+				<File Id="608821874" Language="SFX">
+					<ShortName>footstep_2.wav</ShortName>
+					<Path>SFX\footstep_2_EC6B4DBD.wem</Path>
+				</File>
+				<File Id="613143469" Language="SFX">
+					<ShortName>troll_footstep_2.wav</ShortName>
+					<Path>SFX\troll_footstep_2_9E69E797.wem</Path>
+				</File>
+				<File Id="633564183" Language="SFX">
+					<ShortName>troll_hit_5.wav</ShortName>
+					<Path>SFX\troll_hit_5_9E69E797.wem</Path>
+				</File>
+				<File Id="648218209" Language="SFX">
+					<ShortName>footstep_branch_1.wav</ShortName>
+					<Path>SFX\footstep_branch_1_BD745BE8.wem</Path>
+				</File>
+				<File Id="666037712" Language="SFX">
+					<ShortName>troll_growl_4.wav</ShortName>
+					<Path>SFX\troll_growl_4_A9696F48.wem</Path>
+				</File>
+				<File Id="693874317" Language="SFX">
+					<ShortName>1up_1.wav</ShortName>
+					<Path>SFX\1up_1_9E69E797.wem</Path>
+				</File>
+				<File Id="710143626" Language="SFX">
+					<ShortName>troll_growl_2.wav</ShortName>
+					<Path>SFX\troll_growl_2_9E69E797.wem</Path>
+				</File>
+				<File Id="728707587" Language="SFX">
+					<ShortName>footstep_branch_2.wav</ShortName>
+					<Path>SFX\footstep_branch_2_D8C80FAD.wem</Path>
+				</File>
+				<File Id="779438276" Language="SFX">
+					<ShortName>auntie_gasp_5.wav</ShortName>
+					<Path>SFX\auntie_gasp_5_9E69E797.wem</Path>
+				</File>
+				<File Id="806641534" Language="SFX">
+					<ShortName>auntie_scream_1.wav</ShortName>
+					<Path>SFX\auntie_scream_1_9E69E797.wem</Path>
+				</File>
+				<File Id="811250027" Language="SFX">
+					<ShortName>auntie_throw_2.wav</ShortName>
+					<Path>SFX\auntie_throw_2_9E69E797.wem</Path>
+				</File>
+				<File Id="822245909" Language="SFX">
+					<ShortName>throw_1.wav</ShortName>
+					<Path>SFX\throw_1_9E69E797.wem</Path>
+				</File>
+				<File Id="829888420" Language="SFX">
+					<ShortName>auntie_gasp_7.wav</ShortName>
+					<Path>SFX\auntie_gasp_7_9E69E797.wem</Path>
+				</File>
+				<File Id="870781254" Language="SFX">
+					<ShortName>footstep_branch_5.wav</ShortName>
+					<Path>SFX\footstep_branch_5_86DFDDE7.wem</Path>
+				</File>
+				<File Id="883548022" Language="SFX">
+					<ShortName>Forest soundscape_5.wav</ShortName>
+					<Path>SFX\Forest soundscape_5_12F9BD65.wem</Path>
+				</File>
+				<File Id="920064327" Language="SFX">
+					<ShortName>troll_wraa_1.wav</ShortName>
+					<Path>SFX\troll_wraa_1_9E69E797.wem</Path>
+				</File>
+				<File Id="938146034" Language="SFX">
+					<ShortName>auntie_gasp_2.wav</ShortName>
+					<Path>SFX\auntie_gasp_2_9E69E797.wem</Path>
+				</File>
+				<File Id="947199278" Language="SFX">
+					<ShortName>troll_hit_4.wav</ShortName>
+					<Path>SFX\troll_hit_4_9E69E797.wem</Path>
+				</File>
+				<File Id="960193332" Language="SFX">
+					<ShortName>troll_growl_1.wav</ShortName>
+					<Path>SFX\troll_growl_1_9E69E797.wem</Path>
+				</File>
+				<File Id="974394707" Language="SFX">
+					<ShortName>auntie_gasp_4.wav</ShortName>
+					<Path>SFX\auntie_gasp_4_9E69E797.wem</Path>
+				</File>
+				<File Id="976836971" Language="SFX">
+					<ShortName>auntie_throw_1.wav</ShortName>
+					<Path>SFX\auntie_throw_1_13B7C8D5.wem</Path>
+				</File>
+				<File Id="999985477" Language="SFX">
+					<ShortName>auntie_scream_2.wav</ShortName>
+					<Path>SFX\auntie_scream_2_9E69E797.wem</Path>
+				</File>
+				<File Id="1009520321" Language="SFX">
+					<ShortName>troll_footstep_3.wav</ShortName>
+					<Path>SFX\troll_footstep_3_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

@@ -25,7 +25,9 @@ public class PlayerScript : MonoBehaviour, Player {
 	Animator animator;
 	public float animatorSpeedUp;
 	// Use this for initialization
-	void Start () {
+	void Start() {
+		speedup = 2 * speed;
+
 		animator = gameObject.GetComponentInChildren<Animator> ();
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
@@ -35,6 +37,20 @@ public class PlayerScript : MonoBehaviour, Player {
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
 		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
 		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
+        AkSoundEngine.PostEvent("auntieScream", GameObject.FindGameObjectWithTag(Constants.SOUND));
+	}
+
+	/// <summary>
+	/// Moves the player agent to a selected position
+	/// </summary>
+	/// <param name="pos">Position selected in the scene</param>
+	private void Move(Vector3 pos) {
+		RaycastHit hit;
+        if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
+			if ( hit.transform.tag != Constants.CAKE ) {
+				agent.destination = hit.point;
+			}
+		}
 	}
 
 	// Update is called once per frame
@@ -43,16 +59,24 @@ public class PlayerScript : MonoBehaviour, Player {
 			return;
 		}
 
+		if (agent.remainingDistance > 0.1) {
+			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", true);
+            //AkSoundEngine.PostEvent("auntieFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+        } else {
+			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", false);
+		}
+
 		ToggleMoving(agent.remainingDistance > 0.1);
 
 		foreach ( Touch touch in Input.touches ) {
 			Move(touch.position);
-		}
+        }
 
 		// TODO: currently only works on testing with right mouse button
 		// These lines are only for testing.
 		if ( Input.GetMouseButtonDown(1) ) {
-			Move(Input.mousePosition);
+            AkSoundEngine.PostEvent("auntieMoveClick", GameObject.FindGameObjectWithTag(Constants.SOUND));
+            Move(Input.mousePosition);
 		}
 	}
 
@@ -65,6 +89,8 @@ public class PlayerScript : MonoBehaviour, Player {
 	void OnCollisionEnter(Collision other) {
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
+
+            AkSoundEngine.PostEvent("auntiePickUpCake", GameObject.FindGameObjectWithTag(Constants.SOUND));
 			cakeText.AddCake();
 			cakeThrowing.SetActive();
 		}
@@ -72,7 +98,9 @@ public class PlayerScript : MonoBehaviour, Player {
 		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			score.AddLaundryScore();
-			StartCoroutine(SpeedUp()); // Speedup
+			AkSoundEngine.PostEvent("auntiePickUpClothes", GameObject.FindGameObjectWithTag(Constants.SOUND));
+			// speedup
+			StartCoroutine(SpeedUp());
 		}
 
 		if( other.gameObject.tag == Constants.MUSHROOM) {

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" SchemaVersion="72">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="forestSoundscape" ID="{004BB4D2-8556-4C09-A932-19083675008A}">
+					<ChildrenList>
+						<Action Name="Play" ID="{54C9FC9C-7E00-4715-BEF8-5185DB612ED6}" ShortID="98035823" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{8A9A7FEB-BBDB-4E34-8F11-4F73F470E08E}" Global="false">
+									<ObjectRef Name="Forest soundscape_5" ID="{A20E58F9-F8D9-4082-BF94-E166AE295F02}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="menuClick" ID="{6917675D-06CC-4DDD-BEF7-EF678567D3A9}">
+					<ChildrenList>
+						<Action Name="Play" ID="{0C48359D-2039-4A8B-A5C4-8423FB74B53D}" ShortID="477587740" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A8705E8E-A216-4191-9FC1-A83629DDC125}" Global="false">
+									<ObjectRef Name="click" ID="{ABB0B453-26A6-45A3-AFC5-65F1EDED2D4C}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{9B3C16A7-96F7-4FDA-8596-9D80984DC802}" ShortID="441610095" Type="Play" Scope="One" Global="false">
+							<ExcludedPlatformList>
+								<Platform>Android</Platform>
+							</ExcludedPlatformList>
+							<ElementList>
+								<Element ID="{1F5ECDB8-D8C2-465C-B4A5-E6FE4B985CB8}" Global="false">
+									<ObjectRef Name="1up_1" ID="{D7095E8F-555E-4ABB-AC5F-E1D9705F3671}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="loose" ID="{529F14FD-6240-4F9C-8BF5-A9D0A1292C1D}">
+					<ChildrenList>
+						<Action Name="Play" ID="{E4AA8A2D-F2CE-4545-BA0C-EB731E10F056}" ShortID="344639243" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{BDAF933A-3BFC-430E-988D-D0A6EFAEDEB2}" Global="false">
+									<ObjectRef Name="youLost" ID="{ACF13BE4-63D8-49FC-AE7D-A38DBE00DC20}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="win" ID="{051F4BFA-B3AB-4BF8-858C-7E9E26DA6A83}">
+					<ChildrenList>
+						<Action Name="Play" ID="{543F40DB-81B2-49F1-B8E8-52CFF96BB428}" ShortID="748868642" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{64E252F8-D96E-4019-A88A-8E0E0FDED650}" Global="false">
+									<ObjectRef Name="newRecord" ID="{358BE7B1-851C-4397-B76D-B0F466FC9BA8}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntieGasp" ID="{5A8E9A0A-4CF9-4EAC-88A8-8CC47EE117BB}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C80B28D1-6173-4006-8D70-3EDC7B7C5C56}" ShortID="348585502" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F7C42B09-25BA-42C5-A8CD-9D24FAC7CDF2}" Global="false">
+									<ObjectRef Name="gasp" ID="{DE597B02-9FEC-4573-AF92-19E15C0ECC2E}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntieThrow" ID="{98186DDD-3F7A-4111-95F3-7E0385046DD7}">
+					<ChildrenList>
+						<Action Name="Play" ID="{2227917C-2C85-404A-83D5-D6326494AAF5}" ShortID="935485803" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D758C0BA-F4CF-4082-9B19-11C547FDE6A4}" Global="false">
+									<ObjectRef Name="throw_huhs" ID="{63DDBC40-CD2D-47F1-BFE3-A2EB0DAA8A6D}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{43496FA0-4264-45BC-8984-511D746EBD48}" ShortID="28687136" Type="Play" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.02"/>
+							</PropertyList>
+							<ElementList>
+								<Element ID="{8BDEE61B-82CD-4923-959B-F8FD74FAE9C0}" Global="false">
+									<ObjectRef Name="throw_1" ID="{C7994862-608C-49DA-B020-6F9E70146070}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntiePickUpClothes" ID="{634D21BB-2678-4584-B432-3FD396E5A020}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C6C5FEF7-D66F-4559-9603-A4EA93856A2A}" ShortID="30869152" Type="Play" Scope="One" Global="false">
+							<ExcludedPlatformList>
+								<Platform>Android</Platform>
+							</ExcludedPlatformList>
+							<ElementList>
+								<Element ID="{4F9F0449-929C-4649-94D6-BB964365827B}" Global="false">
+									<ObjectRef Name="pickup_1" ID="{836EF920-0590-4C39-95D9-62455B91534D}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{1ED16E3B-05FB-4D9C-80C9-07E25AB8D2CC}" ShortID="859274773" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9D774242-3B13-4D1B-A133-016D3293577D}" Global="false">
+									<ObjectRef Name="clothes_1" ID="{B175C253-51D7-4273-A03C-14FF800BB4EB}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{27FF493E-5A77-4408-BBA1-A21231FB4EF6}" ShortID="433803043" Type="Play" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ElementList>
+								<Element ID="{EACF282D-752A-43BD-821A-AB5B265C86F6}" Global="false">
+									<ObjectRef Name="1up_1" ID="{D7095E8F-555E-4ABB-AC5F-E1D9705F3671}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntieMoveClick" ID="{CBD3CBE9-63CE-4A5B-A22B-6EDCB98D9E2C}">
+					<ChildrenList>
+						<Action Name="Play" ID="{DF79EBD4-A5D8-4BAF-8BC6-FC7A29EAEA18}" ShortID="256223341" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9E8CB363-0296-40C6-B607-99A562E76737}" Global="false">
+									<ObjectRef Name="click" ID="{ABB0B453-26A6-45A3-AFC5-65F1EDED2D4C}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntieScream" ID="{37BEB9EB-70FB-4B8E-9C7B-1CDCC2036E0E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C522C922-170C-49DE-97B4-FD83892432DA}" ShortID="245886006" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{44F01515-4B46-494C-AA29-B723263538E8}" Global="false">
+									<ObjectRef Name="scream" ID="{A32F593E-C4C1-40B2-9211-A0271D1F96A5}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntiePickUpCake" ID="{5CBB71CA-463A-43B9-A6B5-A40A29C7CF77}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A0E1D732-FFDE-463E-9EC7-DF65C2A2E1F8}" ShortID="821088230" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{83FDB3F2-A9C2-4DDB-9B6E-08540EBFD070}" Global="false">
+									<ObjectRef Name="pickup_1" ID="{836EF920-0590-4C39-95D9-62455B91534D}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="auntieFootstep" ID="{83017068-8822-4A1F-AA9A-19ECB72AB892}">
+					<ChildrenList>
+						<Action Name="Play" ID="{E057B1FF-0D23-4A76-920A-09141030387B}" ShortID="700250658" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F08F4425-0678-4D11-A8E2-259D4DFBE7DE}" Global="false">
+									<ObjectRef Name="footsteps" ID="{7905EF7F-77ED-4BEB-9CDF-F92787317CCA}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="trollHitByCake" ID="{1FDA30F0-D5B9-4C82-A42C-ED1D2936BADA}">
+					<ChildrenList>
+						<Action Name="Play" ID="{AFB16B6E-B8EF-4C6A-89E5-9108C68EEB81}" ShortID="440565788" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{8F420345-1D92-47F6-A603-588589032AF2}" Global="false">
+									<ObjectRef Name="troll_cake_hit" ID="{4BEC6D1E-9E6C-49D6-953D-341CB2925756}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="trollRoar" ID="{6F87EF84-14AE-4701-B8C9-0806B8D3D559}">
+					<ChildrenList>
+						<Action Name="Play" ID="{2CD9FD18-EC36-4DE4-92DF-9EFCA11C85E4}" ShortID="448958130" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{62F0558B-BBE2-4064-96F4-7EA9974DBFEC}" Global="false">
+									<ObjectRef Name="troll_wraas" ID="{E495A5F6-12FD-4286-82D8-11C6CD71E4CA}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="trollCatchLaughter" ID="{DE46D0AE-40AC-47BB-B7C5-CB40AB54133F}">
+					<ChildrenList>
+						<Action Name="Play" ID="{D349C22B-2907-46D5-80A0-694CBA38D186}" ShortID="872039862" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{C23877F9-084A-4014-88BB-9745FDA835B7}" Global="false">
+									<ObjectRef Name="troll_laughter_3" ID="{A072B891-F297-463A-B6CA-1D050A336B41}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="trollFootstep" ID="{06416FDA-9663-4E51-9227-E7E796F35A07}">
+					<ChildrenList>
+						<Action Name="Play" ID="{03FB1D24-F407-4891-BB79-532478BEE402}" ShortID="631013470" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{91893ACA-FE06-42ED-BC02-5C1E5CA4126C}" Global="false">
+									<ObjectRef Name="troll_footsteps" ID="{9BBF1D1D-48AA-45C1-9C19-B21CD5521EFB}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="trollGrowl" ID="{19F78065-A65F-46B6-B2E9-209F198030D6}">
+					<ChildrenList>
+						<Action Name="Play" ID="{2A00CE3B-CE85-478F-A2B6-15FDCB2BC5F5}" ShortID="273572327" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{82282B18-C735-421F-AB78-D33ACCA8AF21}" Global="false">
+									<ObjectRef Name="troll_growls" ID="{3ED91FA2-CBC8-4D30-9D04-5C645369E47B}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="trollEating" ID="{2B1B3F53-8BF5-4FB5-9B58-3FE1F3ACD976}">
+					<ChildrenList>
+						<Action Name="Play" ID="{5AD00324-5F6B-4856-8F8F-121D36B1DB6F}" ShortID="573871915" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{5D528137-0403-4608-9264-5EF5A84D1BF3}" Global="false">
+									<ObjectRef Name="troll_eating" ID="{50112A50-8AA2-4E40-A104-040A66F0C148}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

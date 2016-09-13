@@ -31,6 +31,7 @@ public class GridPlane : MonoBehaviour, GridInterface {
 	void Start () {
 		if ( !isGridInit ) {
 			InitGrid();
+			AkSoundEngine.PostEvent("forestSoundscape", GameObject.FindGameObjectWithTag(Constants.SOUND));
 		}
 	}
 

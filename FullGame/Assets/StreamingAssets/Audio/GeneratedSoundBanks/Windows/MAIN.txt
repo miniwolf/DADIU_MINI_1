@@ -1,0 +1,57 @@
+Event	ID	Name			Wwise Object Path	Notes
+	19389036	auntieMoveClick			\Default Work Unit\Auntie\auntieMoveClick	
+	306690129	trollGrowl			\Default Work Unit\Troll\trollGrowl	
+	329248667	auntiePickUpCake			\Default Work Unit\Auntie\auntiePickUpCake	
+	835295888	trollFootstep			\Default Work Unit\Troll\trollFootstep	
+	1067378438	trollRoar			\Default Work Unit\Troll\trollRoar	
+	1173430014	trollHitByCake			\Default Work Unit\Troll\trollHitByCake	
+	2277583578	auntieGasp			\Default Work Unit\Auntie\auntieGasp	
+	3500283897	auntieFootstep			\Default Work Unit\Auntie\auntieFootstep	
+	3621737089	auntiePickUpClothes			\Default Work Unit\Auntie\auntiePickUpClothes	
+	3638507867	forestSoundscape			\Default Work Unit\forestSoundscape	
+	3666468717	auntieThrow			\Default Work Unit\Auntie\auntieThrow	
+	3711598968	menuClick			\Default Work Unit\Game\menuClick	
+	4278306412	auntieScream			\Default Work Unit\Auntie\auntieScream	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	22198494	footstep_5	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_5_7B751375.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footsteps\footstep_5		46216
+	65494664	footstep_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_1_C13129E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footsteps\footstep_1		45500
+	80040531	auntie_gasp_3	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_3		57476
+	116425071	footstep_branch_3	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_branch_3_CAD0F03D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footstep_branches\footstep_branch_3		27520
+	185832494	click_3	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\click_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Game\click\click_3		18492
+	194033676	troll_wraa_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_wraa_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_wraas\troll_wraa_2		207608
+	283808173	troll_growl_3	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_growl_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_growls\troll_growl_3		301304
+	314772158	clothes_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\clothes_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Items\clothes_1		173928
+	353953596	click_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\click_2_657A035A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Game\click\click_2		27656
+	391961493	auntie_gasp_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_1		34288
+	401517112	footstep_branch_4	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_branch_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footstep_branches\footstep_branch_4		85152
+	452347185	troll_footstep_4	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_footstep_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_footsteps\troll_footstep_4		22624
+	478478280	footstep_branch_6	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_branch_6_C7F92421.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footstep_branches\footstep_branch_6		17672
+	495087963	troll_footstep_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_footstep_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_footsteps\troll_footstep_1		22432
+	544886190	footstep_3	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_3_392EE56A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footsteps\footstep_3		32284
+	548860741	auntie_gasp_6	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_6		87248
+	607362798	footstep_4	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_4_9533C134.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footsteps\footstep_4		38760
+	608821874	footstep_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_2_EC6B4DBD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footsteps\footstep_2		44392
+	613143469	troll_footstep_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_footstep_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_footsteps\troll_footstep_2		23404
+	633564183	troll_hit_5	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_hit_5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_cake_hit\troll_hit_5		62100
+	648218209	footstep_branch_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_branch_1_BD745BE8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footstep_branches\footstep_branch_1		128536
+	666037712	troll_growl_4	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_growl_4_A9696F48.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_growls\troll_growl_4		223228
+	693874317	1up_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\1up_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Game\1up_1		60088
+	710143626	troll_growl_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_growl_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_growls\troll_growl_2		256204
+	728707587	footstep_branch_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_branch_2_D8C80FAD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footstep_branches\footstep_branch_2		52816
+	779438276	auntie_gasp_5	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_5		89192
+	806641534	auntie_scream_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_scream_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\scream\auntie_scream_1		90292
+	811250027	auntie_throw_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_throw_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\throw_huhs\auntie_throw_2		73140
+	822245909	throw_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\throw_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Items\throw_1		41540
+	829888420	auntie_gasp_7	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_7_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_7		65088
+	870781254	footstep_branch_5	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\footstep_branch_5_86DFDDE7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\footstepsSeq\footsteps\footstep_branches\footstep_branch_5		43996
+	883548022	Forest soundscape_5	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\Forest soundscape_5_12F9BD65.wem		\Actor-Mixer Hierarchy\Default Work Unit\Soundscape\Forest soundscape_5		31205292
+	920064327	troll_wraa_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_wraa_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_wraas\troll_wraa_1		259492
+	938146034	auntie_gasp_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_2		60560
+	947199278	troll_hit_huh	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_hit_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_cake_hit\troll_hit_huh		72188
+	960193332	troll_growl_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_growl_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_growls\troll_growl_1		100476
+	974394707	auntie_gasp_4	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_gasp_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\gasp\auntie_gasp_4		53620
+	976836971	auntie_throw_1	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_throw_1_13B7C8D5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\throw_huhs\auntie_throw_1		42740
+	999985477	auntie_scream_2	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\auntie_scream_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Auntie\scream\auntie_scream_2		119292
+	1009520321	troll_footstep_3	C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\SFX\troll_footstep_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Troll\troll_footsteps\troll_footstep_3		23404
+

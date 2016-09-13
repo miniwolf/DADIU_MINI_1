@@ -44,7 +44,8 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	public void OnMouseUp() {
 		up(Input.mousePosition);
 		animator.SetTrigger("Throw");
-	}
+        AkSoundEngine.PostEvent("auntieThrow", GameObject.FindGameObjectWithTag(Constants.SOUND));
+    }
 	
 	public void Update() {
 		RaycastHit hit;

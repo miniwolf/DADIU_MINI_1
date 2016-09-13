@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7ED74B92-47F6-427C-A3D6-DB04C3D11D42}" SchemaVersion="72">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{7ED74B92-47F6-427C-A3D6-DB04C3D11D42}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="MAIN" ID="{A2C7CED7-A94F-460D-8E15-D7E710F09084}">
+					<ObjectInclusionList>
+						<ObjectRef Name="auntieThrow" ID="{98186DDD-3F7A-4111-95F3-7E0385046DD7}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="auntiePickUpCake" ID="{5CBB71CA-463A-43B9-A6B5-A40A29C7CF77}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="auntiePickUpClothes" ID="{634D21BB-2678-4584-B432-3FD396E5A020}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="trollGrowl" ID="{19F78065-A65F-46B6-B2E9-209F198030D6}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="trollRoar" ID="{6F87EF84-14AE-4701-B8C9-0806B8D3D559}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="trollCatchLaughter" ID="{DE46D0AE-40AC-47BB-B7C5-CB40AB54133F}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="auntieFootstep" ID="{83017068-8822-4A1F-AA9A-19ECB72AB892}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="auntieMoveClick" ID="{CBD3CBE9-63CE-4A5B-A22B-6EDCB98D9E2C}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="auntieScream" ID="{37BEB9EB-70FB-4B8E-9C7B-1CDCC2036E0E}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="win" ID="{051F4BFA-B3AB-4BF8-858C-7E9E26DA6A83}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="forestSoundscape" ID="{004BB4D2-8556-4C09-A932-19083675008A}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="trollHitByCake" ID="{1FDA30F0-D5B9-4C82-A42C-ED1D2936BADA}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="menuClick" ID="{6917675D-06CC-4DDD-BEF7-EF678567D3A9}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="trollFootstep" ID="{06416FDA-9663-4E51-9227-E7E796F35A07}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="auntieGasp" ID="{5A8E9A0A-4CF9-4EAC-88A8-8CC47EE117BB}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="loose" ID="{529F14FD-6240-4F9C-8BF5-A9D0A1292C1D}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="trollEating" ID="{2B1B3F53-8BF5-4FB5-9B58-3FE1F3ACD976}" WorkUnitID="{7F5E3B0F-AB92-4C62-A887-F537F2454125}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
