@@ -15,17 +15,13 @@ public class PlayerScript : MonoBehaviour, Player {
 	private Camera cam;
 	private Score score;
 	private CakesText cakeText;
-<<<<<<< HEAD
 	private Cake cakeThrowing;
 
 	// Internal components
 	private NavMeshAgent agent;
 	private Stopwatch timer;
 	private bool hasBeenCaught;
-=======
     private float now;
-	public int speedupTime = 1;
->>>>>>> Step sounds
 
 	Animator animator;
 	public float animatorSpeedUp;
@@ -53,7 +49,7 @@ public class PlayerScript : MonoBehaviour, Player {
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
         if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
-			if ( hit.transform.tag != Constants.CAKE ) {
+			if ( hit.transform.tag != Constants.CAKEICON ) {
 				agent.destination = hit.point;
 			}
 		}
@@ -132,19 +128,6 @@ public class PlayerScript : MonoBehaviour, Player {
 		yield return new WaitForSeconds(slowdownTime);
 
 		agent.speed += slowdown;
-	}
-
-	/// <summary>
-	/// Moves the player agent to a selected position
-	/// </summary>
-	/// <param name="pos">Position selected in the scene</param>
-	private void Move(Vector3 pos) {
-		RaycastHit hit;
-		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
-			if ( hit.transform.tag != Constants.CAKEICON ) {
-				agent.destination = hit.point;
-			}
-		}
 	}
 
 	private void ToggleMoving(bool isMoving) {
