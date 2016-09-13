@@ -7,7 +7,6 @@ public class Timer : MonoBehaviour {
 	private int startingTime;
 	private Text text;
 
-
 	// Use this for initialization
 	void Start () {
 		text = GetComponent<Text> (); 
@@ -28,5 +27,9 @@ public class Timer : MonoBehaviour {
 			// load new level/screen
 			Application.LoadLevel(Application.loadedLevel);
 		}
+	}
+
+	public void AddExtraTime(int extraTime) {
+		startingTime += extraTime;
 	}
 }

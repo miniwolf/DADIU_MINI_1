@@ -11,13 +11,17 @@ public class Score : MonoBehaviour, ScoreInterface {
 	private static int highscore;
 	private Text text;
 	private int score;
+	public int extraTime; //extra time when picking laundry
+	private Timer timer;
 
 	void Start() {
 		text = GetComponent<Text>();
+		extraTime = 2;
 		// player score set to 0 and highscore taken from the preferences
 		score = 0;
 		PlayerPrefs.SetInt("score", 0);
 		highscore = PlayerPrefs.GetInt("highscore");
+		timer = GameObject.FindGameObjectWithTag(Constants.TIMETEXT).GetComponent<Timer>();
 	}
 
 	void Update() {
@@ -33,6 +37,8 @@ public class Score : MonoBehaviour, ScoreInterface {
 	public void AddLaundryScore() {
 		score += 100; //picking a dress is 100 points
 		PlayerPrefs.SetInt ("score", score);
+		// add extra time when picking laundry
+		timer.AddExtraTime(extraTime);
 	}
 
 	public void AddCakesScore() {

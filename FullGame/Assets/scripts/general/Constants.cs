@@ -10,6 +10,7 @@ public class Constants {
 	public const string CAKEICON = "CakeIcon";
 	public const string PLAYERCAM = "MainCamera";
 	public const string CAKETEXT = "CakeText";
+	public const string TIMETEXT = "TimeText";
 	public const string SCORE = "Score";
 	public const string GROUNDLAYER = "GroundLayer";
 	public const string ARROW = "Arrow";
