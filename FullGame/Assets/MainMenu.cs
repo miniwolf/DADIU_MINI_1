@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour,MainMenuInterface {
 
 	GameObject blockingClickOnPause;
 	bool shouldShowMenu = true;

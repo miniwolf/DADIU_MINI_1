@@ -35,7 +35,7 @@ public class Arrow : MonoBehaviour, ArrowInterface {
 	void GetDirAndPlaceArrow(){
 		Vector3 pos = cam.WorldToViewportPoint(enemy.transform.position);
 		pos.x = Mathf.Clamp(pos.x, .1f, .9f);
-		pos.y = Mathf.Clamp(pos.y, .1f, .9f);
+		pos.y = Mathf.Clamp(pos.y, .1f, .8f);
 		pos.z = Mathf.Clamp(pos.z, .1f, .9f);
 		transform.position = cam.ViewportToScreenPoint(pos);
 

@@ -69,6 +69,8 @@ public class Enemy : MonoBehaviour {
 			score.AddTrollScore();
 		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
+			//Change here to add the end screen
+			GameObject.FindGameObjectWithTag("ReloadOBJ").GetComponent<Reload>().ReloadLevel();
 			AkSoundEngine.PostEvent("trollCatchLaughter", GameObject.FindGameObjectWithTag(Constants.SOUND));
 		}
 	}
