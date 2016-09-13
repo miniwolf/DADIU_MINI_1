@@ -15,4 +15,5 @@ public class Constants {
 	public const string SCORE = "Score";
 	public const string GROUNDLAYER = "GroundLayer";
 	public const string ARROW = "Arrow";
+	public const string BLOCKINGCLICKS = "UIBlockClick";
 }

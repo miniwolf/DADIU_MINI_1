@@ -38,7 +38,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 		playerCam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponent<Transform>();
-		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
+		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesTextInterface>();
 
 		if(cakeText.GetNumCakes() == 0) {
 			gameObject.SetActive(false);

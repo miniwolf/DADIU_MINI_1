@@ -17,19 +17,18 @@ public class MainMenu : MonoBehaviour,MainMenuInterface {
 		tutorial = GameObject.FindGameObjectWithTag ("Tutorial");
 
 		if (PlayerPrefs.GetInt ("ShouldShowIntroStory") == 1) {
-			HideIntroStory ();
+			HideIntroStory();
 		} else {
-			ShowIntroStory ();
+			ShowIntroStory();
 		}
 		if (PlayerPrefs.GetInt ("ShouldShowTutorial") == 1) {
-			HideTutorial ();
+			HideTutorial();
 		} else {
-			ShowIntroStory ();
+			ShowTutorial();
 		}
 
 		blockingClickOnPause = GameObject.FindGameObjectWithTag (Constants.BLOCKINGCLICKS);
-		shouldShowMenuHolder = PlayerPrefs.GetInt ("shouldShowMenu");
-		if (shouldShowMenuHolder == 1) {
+		if (PlayerPrefs.GetInt("shouldShowMenu") == 1) {
 			shouldShowMenu = true;
 		} else {
 			shouldShowMenu = false;
@@ -37,7 +36,6 @@ public class MainMenu : MonoBehaviour,MainMenuInterface {
 		if (shouldShowMenu) {
 			Time.timeScale = 0;
 			ShowMenu ();
-
 		} else {
 			HideSettings ();
 			HideMenu ();
@@ -66,12 +64,11 @@ public class MainMenu : MonoBehaviour,MainMenuInterface {
 	}
 
 	public void StartGame(){
-		foreach(Transform go in gameObject.GetComponentInChildren<Transform>()){
-			go.GetComponent<Image> ().enabled = false;
-		}
+		HideMenu();
 		blockingClickOnPause.SetActive (false);
 		Time.timeScale = 1;
-
+		PlayerPrefs.SetInt("ShouldShowTutorial", 1);
+		PlayerPrefs.SetInt("ShouldShowIntroStory", 1);
 	}
 
 	public void ShowSettings(){

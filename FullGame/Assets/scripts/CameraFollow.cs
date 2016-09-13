@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 	public GameObject player;
+
+	void Start() {
+		player = GameObject.FindGameObjectWithTag(Constants.PLAYER);
+	}
 	
 	// Update is called once per frame
 	void Update () {
