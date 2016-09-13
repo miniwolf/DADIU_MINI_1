@@ -6,20 +6,21 @@ public class GridPlane : MonoBehaviour, GridInterface {
 
 	public int gridSizeX = 10, gridSizeY = 10;
 	public float yPlacementOfGO = 0;
-
+	bool isGridInit = false;
 
 	[HideInInspector]
 	public GridTile[][] theGrid;
 
-
-	void Awake() {
-		theGrid = new GridTile[gridSizeX][];
-		for(int i = 0; i < theGrid.Length; i++) {
-			theGrid[i] = new GridTile[gridSizeY];
-		}
-		for(int i = 0; i < theGrid.Length; i++) {
-			for(int u = 0; u < theGrid[i].Length; u++) {
-				theGrid[i][u] = new GridTile();
+	void Awake(){
+		if (!isGridInit) {
+			theGrid = new GridTile[gridSizeX][];
+			for (int i = 0; i < theGrid.Length; i++) {
+				theGrid [i] = new GridTile[gridSizeY];
+			}
+			for (int i = 0; i < theGrid.Length; i++) {
+				for (int u = 0; u < theGrid [i].Length; u++) {
+					theGrid [i] [u] = new GridTile ();
+				}
 			}
 		}
 
@@ -31,8 +32,10 @@ public class GridPlane : MonoBehaviour, GridInterface {
 	}
 
 	// Use this for initialization
-	void Start() {
-		InitGrid();
+	void Start () {
+		if (!isGridInit) {
+			InitGrid ();
+		}
 	}
 
 
@@ -54,7 +57,6 @@ public class GridPlane : MonoBehaviour, GridInterface {
 		}
 		theGrid[0][0].pos = new Vector2(initPos.x + gameObject.transform.localScale.x / gridSizeX / 2, initPos.y + gameObject.transform.localScale.y / gridSizeY / 2);
 		theGrid[0][0].rect.center = theGrid[0][0].pos;
-
 	}
 	/// <summary>
 	/// Converts world coordinates to grid coordinates.

@@ -11,21 +11,25 @@ public class GridTile {
 		pos = Vector2.zero;
 		isObstructed = false;
 		rect = new Rect ();
+
 	}
 
-	public void CheckIfObstructed(){
-		RaycastHit hit;
-		if(Physics.Raycast(new Vector3(rect.center.x,40,rect.center.y),-Vector3.up,out hit,45)){
-			if (hit.transform.tag != "Obstacle"&&hit.transform.tag != "Player"&&hit.transform.tag!="Enemy") {
-				isObstructed = false;
-			} else {
+	public bool CheckIfObstructed(){
+		RaycastHit[] hit;
+		hit = Physics.BoxCastAll (new Vector3 (rect.center.x, 40, rect.center.y), new Vector3(rect.size.x / 2,1,rect.size.y/2), -Vector3.up, Quaternion.identity, 45f);
+
+
+		for (int i = 0; i < hit.Length; i++) {
+			//Debug.Log (hit [i].transform.name);
+			if (hit[i].transform.tag == "Obstacle"||hit[i].transform.tag == "Player"||hit[i].transform.tag=="Enemy") {
+				//Debug.Log (hit[i].transform.name);
 				isObstructed = true;
+				//Debug.Log (rect.center);
+				Debug.Log (isObstructed);
 			}
 		}
+		return isObstructed;
+		
 	}
-
-
-
-
-
 }
+			
