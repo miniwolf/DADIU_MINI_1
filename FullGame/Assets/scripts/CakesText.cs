@@ -13,7 +13,7 @@ public class CakesText : MonoBehaviour, CakesTextInterface {
 	public Score score;
 
 	void Start() {
-		text = GetComponent<Text>();
+		text = GetComponentInChildren<Text> ();
 		// number of initial cakes is set to 0
 		numCakes = 0;
 		PlayerPrefs.SetInt("numCakes", 0);
