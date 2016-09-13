@@ -6,6 +6,7 @@ using System.Diagnostics;
 // TODO implements interface
 public class PlayerScript : MonoBehaviour, Player {
 	public int speed = 6;
+	public int speedup;
 	public int angularSpeed = 120;
 	public int speedupTime = 1;
 
@@ -19,15 +20,16 @@ public class PlayerScript : MonoBehaviour, Player {
 	private NavMeshAgent agent;
 	private Stopwatch timer;
 
-	private int speedup;
 	private bool hasBeenCaught;
 
+	Animator animator;
+	public float animatorSpeedUp;
 	// Use this for initialization
 	void Start () {
+		animator = gameObject.GetComponentInChildren<Animator> ();
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
-		speedup = 2 * speed;
 
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
@@ -76,9 +78,11 @@ public class PlayerScript : MonoBehaviour, Player {
 
 	IEnumerator SpeedUp() {
 		agent.speed += speedup;
+		animator.speed += animatorSpeedUp;
 		yield return new WaitForSeconds(speedupTime);
 
 		agent.speed -= speedup;
+		animator.speed -= animatorSpeedUp;
 	}
 
 	/// <summary>
