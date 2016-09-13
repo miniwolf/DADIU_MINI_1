@@ -13,6 +13,11 @@
 									</ValueList>
 								</Property>
 								<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -232,6 +237,23 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="gasp" ID="{DE597B02-9FEC-4573-AF92-19E15C0ECC2E}" ShortID="701292981">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{893E5563-3125-4049-9E12-8158BECD31DC}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
@@ -327,6 +349,13 @@
 									<ExcludedPlatformList>
 										<Platform>Android</Platform>
 									</ExcludedPlatformList>
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
@@ -349,6 +378,13 @@
 									<ExcludedPlatformList>
 										<Platform>Android</Platform>
 									</ExcludedPlatformList>
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
@@ -514,6 +550,11 @@
 						<RandomSequenceContainer Name="scream" ID="{A32F593E-C4C1-40B2-9211-A0271D1F96A5}" ShortID="645253101">
 							<PropertyList>
 								<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -763,10 +804,40 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="footstepsSeq" ID="{A6B3C922-73A4-4B72-9B68-15C98A4976C8}" ShortID="961088042">
+						<BlendContainer Name="footsteps" ID="{7905EF7F-77ED-4BEB-9CDF-F92787317CCA}" ShortID="995494632">
 							<PropertyList>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+								<Property Name="Lowpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A84CBF6C-970B-4FB2-AD96-0CE7984E1B95}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="20"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>250</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{AD71F9BC-7718-4A39-B096-4AC2182E659E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="200"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -777,40 +848,19 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<BlendContainer Name="footsteps" ID="{7905EF7F-77ED-4BEB-9CDF-F92787317CCA}" ShortID="995494632">
+								<RandomSequenceContainer Name="footsteps" ID="{D9D4104F-95BA-4B34-9BFC-10268E84A6A5}" ShortID="998326006">
 									<PropertyList>
 										<Property Name="Lowpass" Type="int16">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{A84CBF6C-970B-4FB2-AD96-0CE7984E1B95}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="20"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
 										</Property>
 										<Property Name="Pitch" Type="int32">
 											<ValueList>
-												<Value>250</Value>
-											</ValueList>
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{AD71F9BC-7718-4A39-B096-4AC2182E659E}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="200"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
+												<Value>800</Value>
 											</ValueList>
 										</Property>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -821,20 +871,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="footsteps" ID="{D9D4104F-95BA-4B34-9BFC-10268E84A6A5}" ShortID="998326006">
-											<PropertyList>
-												<Property Name="Lowpass" Type="int16">
-													<ValueList>
-														<Value>20</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ValueList>
-														<Value>800</Value>
-													</ValueList>
-												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-											</PropertyList>
+										<Sound Name="footstep_4" ID="{87A2FB6D-C6A9-4308-BCA5-5C6712221ADA}" ShortID="466241965" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
@@ -844,154 +881,22 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="footstep_4" ID="{87A2FB6D-C6A9-4308-BCA5-5C6712221ADA}" ShortID="466241965" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_4" ID="{C47E803E-9583-4EF2-BB40-8EE4079B942F}" ShortID="607362798">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_4" ID="{C47E803E-9583-4EF2-BB40-8EE4079B942F}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_1" ID="{35FDA9C1-9B1C-4401-A841-0C50ECBBF756}" ShortID="853888395" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_1" ID="{11416005-9CF0-438D-B4E4-D8EE9D203284}" ShortID="65494664">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_1" ID="{11416005-9CF0-438D-B4E4-D8EE9D203284}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_3" ID="{E25AE1A4-FC84-4C58-A123-00DE23C30BFC}" ShortID="315609678" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_3" ID="{29AB8232-EC61-4A11-BDED-F741267B4E9D}" ShortID="544886190">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_3" ID="{29AB8232-EC61-4A11-BDED-F741267B4E9D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_2" ID="{8FC2FFD7-7EE5-41EA-86C6-98EE31FB2BB7}" ShortID="726828440" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_2" ID="{C4E12CEB-1207-4FBE-8B20-8DECBF1F20FD}" ShortID="608821874">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_2" ID="{C4E12CEB-1207-4FBE-8B20-8DECBF1F20FD}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_5" ID="{30C1CAF5-3AE2-4A14-8705-E577487C6CA2}" ShortID="633645471" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_5" ID="{70CB1968-6306-4717-A402-24019367D203}" ShortID="22198494">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_5" ID="{70CB1968-6306-4717-A402-24019367D203}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
+												<AudioFileSource Name="footstep_4" ID="{C47E803E-9583-4EF2-BB40-8EE4079B942F}" ShortID="607362798">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
+														<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_4.wav</AudioFile>
+												</AudioFileSource>
 											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="footstep_branches" ID="{5C89D1DF-90A7-453B-AEE2-10D31C33A0F7}" ShortID="901091111">
-											<PropertyList>
-												<Property Name="Highpass" Type="int16">
-													<ValueList>
-														<Value>50</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{3638F1B4-BDC2-4E1A-A511-AF46215AF86C}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="400"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-											</PropertyList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_4" ID="{C47E803E-9583-4EF2-BB40-8EE4079B942F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_1" ID="{35FDA9C1-9B1C-4401-A841-0C50ECBBF756}" ShortID="853888395" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
@@ -1001,219 +906,118 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="footstep_branch_1" ID="{C4D6E8A8-4A11-4099-B87D-FCC888AD5F89}" ShortID="443841689" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_1" ID="{E674E87B-AA8A-4826-A91E-50519567545A}" ShortID="648218209">
-															<PropertyList>
-																<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_1" ID="{E674E87B-AA8A-4826-A91E-50519567545A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_2" ID="{57185CA8-FC3D-40E8-BED9-B1B76DA410C6}" ShortID="929517391" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_2" ID="{A7268824-76AA-4852-A25F-E89D505026A0}" ShortID="728707587">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_2" ID="{A7268824-76AA-4852-A25F-E89D505026A0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_3" ID="{CB854405-0BA5-42D6-9B09-DF60288CB95B}" ShortID="1456547" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
+												<AudioFileSource Name="footstep_1" ID="{11416005-9CF0-438D-B4E4-D8EE9D203284}" ShortID="65494664">
 													<PropertyList>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>34</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-400</Value>
-															</ValueList>
-														</Property>
+														<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
+														<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
 													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_3" ID="{F84BBB1D-5834-4115-A4B1-C3E16E7D0F76}" ShortID="116425071">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_3" ID="{F84BBB1D-5834-4115-A4B1-C3E16E7D0F76}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_4" ID="{3D9D0B7E-FAAA-42C6-B3B2-F32317CD3CFB}" ShortID="122596258" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_4" ID="{56503CCB-6621-4070-B8E0-A58C5493B949}" ShortID="401517112">
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_4" ID="{56503CCB-6621-4070-B8E0-A58C5493B949}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_6" ID="{0F0B4C23-4BC9-4DA6-AC81-947F02F135AE}" ShortID="920564520" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_6" ID="{ED27787D-EDC0-4CE8-8514-009573D007B1}" ShortID="478478280">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_6.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_6" ID="{ED27787D-EDC0-4CE8-8514-009573D007B1}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_5" ID="{FB1FCB48-69DD-4CD0-A018-D08C71C332EA}" ShortID="126751418" Type="SoundFX">
-													<PropertyList>
-														<Property Name="OutputBusVolume" Type="Real64">
-															<ValueList>
-																<Value>-17</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverrideOutput" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-5</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_5" ID="{407B8843-D90A-4904-9571-F0121819C437}" ShortID="870781254">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_5" ID="{407B8843-D90A-4904-9571-F0121819C437}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
+													<Language>SFX</Language>
+													<AudioFile>footstep_1.wav</AudioFile>
+												</AudioFileSource>
 											</ChildrenList>
-										</RandomSequenceContainer>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_1" ID="{11416005-9CF0-438D-B4E4-D8EE9D203284}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_3" ID="{E25AE1A4-FC84-4C58-A123-00DE23C30BFC}" ShortID="315609678" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_3" ID="{29AB8232-EC61-4A11-BDED-F741267B4E9D}" ShortID="544886190">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_3.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_3" ID="{29AB8232-EC61-4A11-BDED-F741267B4E9D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_2" ID="{8FC2FFD7-7EE5-41EA-86C6-98EE31FB2BB7}" ShortID="726828440" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_2" ID="{C4E12CEB-1207-4FBE-8B20-8DECBF1F20FD}" ShortID="608821874">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
+														<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_2" ID="{C4E12CEB-1207-4FBE-8B20-8DECBF1F20FD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_5" ID="{30C1CAF5-3AE2-4A14-8705-E577487C6CA2}" ShortID="633645471" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_5" ID="{70CB1968-6306-4717-A402-24019367D203}" ShortID="22198494">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
+														<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_5.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_5" ID="{70CB1968-6306-4717-A402-24019367D203}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-								</BlendContainer>
-								<BlendContainer Name="footsteps_01" ID="{AB2D2CD6-8632-406F-AFEF-530124DF5B26}" ShortID="254430906">
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="footstep_branches" ID="{5C89D1DF-90A7-453B-AEE2-10D31C33A0F7}" ShortID="901091111">
 									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{8C379AE7-BE93-4564-9261-D26202CEA445}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="20"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>50</Value>
+											</ValueList>
 										</Property>
 										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>250</Value>
-											</ValueList>
 											<ModifierList>
 												<ModifierInfo>
-													<Modifier Name="" ID="{CD21FDA7-6B85-4D49-A97A-E564C4E8CD3B}">
+													<Modifier Name="" ID="{3638F1B4-BDC2-4E1A-A511-AF46215AF86C}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
-											</ValueList>
-										</Property>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1224,19 +1028,78 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="footsteps" ID="{8C83152C-D2AB-483F-B19F-F16320F45F01}" ShortID="764036066">
+										<Sound Name="footstep_branch_1" ID="{C4D6E8A8-4A11-4099-B87D-FCC888AD5F89}" ShortID="443841689" Type="SoundFX">
+											<ExcludedPlatformList>
+												<Platform>Android</Platform>
+											</ExcludedPlatformList>
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-17</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_branch_1" ID="{E674E87B-AA8A-4826-A91E-50519567545A}" ShortID="648218209">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_branch_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_branch_1" ID="{E674E87B-AA8A-4826-A91E-50519567545A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_branch_2" ID="{57185CA8-FC3D-40E8-BED9-B1B76DA410C6}" ShortID="929517391" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_branch_2" ID="{A7268824-76AA-4852-A25F-E89D505026A0}" ShortID="728707587">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_branch_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_branch_2" ID="{A7268824-76AA-4852-A25F-E89D505026A0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_branch_3" ID="{CB854405-0BA5-42D6-9B09-DF60288CB95B}" ShortID="1456547" Type="SoundFX">
+											<ExcludedPlatformList>
+												<Platform>Android</Platform>
+											</ExcludedPlatformList>
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16">
 													<ValueList>
-														<Value>20</Value>
+														<Value>34</Value>
 													</ValueList>
 												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
-														<Value>800</Value>
+														<Value>-400</Value>
 													</ValueList>
 												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1247,168 +1110,31 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="footstep_4" ID="{9069883A-D522-45C3-88CE-0A4A43A36626}" ShortID="474359179" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_4" ID="{471E670A-BACB-416C-BF0D-3787D37088E3}" ShortID="491061786">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="607362798"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_4" ID="{471E670A-BACB-416C-BF0D-3787D37088E3}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_1" ID="{4C22B047-22DB-45E4-9695-9B79001B7E74}" ShortID="487422721" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_1" ID="{DED6520D-5F64-446B-9692-DCD62224A9C1}" ShortID="468323572">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="65494664"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_1" ID="{DED6520D-5F64-446B-9692-DCD62224A9C1}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_3" ID="{3395116E-C5C8-44BC-90CF-AE973F03A732}" ShortID="917877912" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_3" ID="{021D1B8B-3E7A-4CD8-A06D-05FF8330534D}" ShortID="41140599">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="544886190"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_3" ID="{021D1B8B-3E7A-4CD8-A06D-05FF8330534D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_2" ID="{BCBBFC7E-874F-4795-A172-BF5110081106}" ShortID="485190863" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_2" ID="{DE2D4A05-E0A8-4991-BFA1-F09C0F23FE4D}" ShortID="153746780">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="608821874"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_2" ID="{DE2D4A05-E0A8-4991-BFA1-F09C0F23FE4D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_5" ID="{7F9289F1-AFED-45BF-A480-B006E8218C7A}" ShortID="267296331" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_5" ID="{60CD4705-4097-43C2-B906-3FF7A30D6D3E}" ShortID="699498388">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="22198494"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_5" ID="{60CD4705-4097-43C2-B906-3FF7A30D6D3E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
+												<AudioFileSource Name="footstep_branch_3" ID="{F84BBB1D-5834-4115-A4B1-C3E16E7D0F76}" ShortID="116425071">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_branch_3.wav</AudioFile>
+												</AudioFileSource>
 											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="footstep_branches" ID="{FC0BEB16-E90C-4BE5-9404-2E46657D15BE}" ShortID="17269191">
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_branch_3" ID="{F84BBB1D-5834-4115-A4B1-C3E16E7D0F76}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_branch_4" ID="{3D9D0B7E-FAAA-42C6-B3B2-F32317CD3CFB}" ShortID="122596258" Type="SoundFX">
+											<ExcludedPlatformList>
+												<Platform>Android</Platform>
+											</ExcludedPlatformList>
 											<PropertyList>
-												<Property Name="Highpass" Type="int16">
+												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>50</Value>
+														<Value>-19</Value>
 													</ValueList>
 												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{2F65EBB8-184F-4F51-A133-973814D34ED7}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="400"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1419,1949 +1145,82 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="footstep_branch_1" ID="{71584E95-E2A6-4900-BED6-490B51D05C94}" ShortID="316839336" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_1" ID="{C5870A04-C6EF-4EFA-9723-72DEEBCF00E2}" ShortID="764024999">
-															<PropertyList>
-																<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="648218209"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_1" ID="{C5870A04-C6EF-4EFA-9723-72DEEBCF00E2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_2" ID="{B934FAB7-E63D-4CB0-AFFF-D0A939A22806}" ShortID="753624941" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_2" ID="{10091657-DC05-4489-9D4E-A207AB76A9ED}" ShortID="741792557">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="728707587"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_2" ID="{10091657-DC05-4489-9D4E-A207AB76A9ED}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_3" ID="{3B0A9043-721D-4409-BC43-A9E6F8BAF567}" ShortID="440190422" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<PropertyList>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>34</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-400</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_3" ID="{9E3ADD25-55B4-4F44-ACE7-5F895C6FFB87}" ShortID="112245426">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="116425071"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_3" ID="{9E3ADD25-55B4-4F44-ACE7-5F895C6FFB87}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_4" ID="{972E1CFB-1A24-4552-8463-366F0B5BD35E}" ShortID="117370035" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_4" ID="{158E0B17-FB6D-4A08-AEB4-A49813F0E09B}" ShortID="492864084">
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="401517112"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_4" ID="{158E0B17-FB6D-4A08-AEB4-A49813F0E09B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_6" ID="{B5E8CD2A-C361-476D-8F67-11681C779603}" ShortID="1064620409" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_6" ID="{A691677D-B872-40B9-8C3A-E70CCB6FBFAF}" ShortID="683050346">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_6.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="478478280"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_6" ID="{A691677D-B872-40B9-8C3A-E70CCB6FBFAF}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_5" ID="{5CAB5668-2E8F-4F61-894B-9916FC23604A}" ShortID="733398461" Type="SoundFX">
-													<PropertyList>
-														<Property Name="OutputBusVolume" Type="Real64">
-															<ValueList>
-																<Value>-17</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverrideOutput" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-5</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_5" ID="{82FD72A1-1C26-4A37-A695-B4915ED12EA3}" ShortID="606970409">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="870781254"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_5" ID="{82FD72A1-1C26-4A37-A695-B4915ED12EA3}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
+												<AudioFileSource Name="footstep_branch_4" ID="{56503CCB-6621-4070-B8E0-A58C5493B949}" ShortID="401517112">
+													<Language>SFX</Language>
+													<AudioFile>footstep_branch_4.wav</AudioFile>
+												</AudioFileSource>
 											</ChildrenList>
-										</RandomSequenceContainer>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_branch_4" ID="{56503CCB-6621-4070-B8E0-A58C5493B949}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_branch_6" ID="{0F0B4C23-4BC9-4DA6-AC81-947F02F135AE}" ShortID="920564520" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_branch_6" ID="{ED27787D-EDC0-4CE8-8514-009573D007B1}" ShortID="478478280">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_branch_6.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_branch_6" ID="{ED27787D-EDC0-4CE8-8514-009573D007B1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="footstep_branch_5" ID="{FB1FCB48-69DD-4CD0-A018-D08C71C332EA}" ShortID="126751418" Type="SoundFX">
+											<PropertyList>
+												<Property Name="OutputBusVolume" Type="Real64">
+													<ValueList>
+														<Value>-17</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="footstep_branch_5" ID="{407B8843-D90A-4904-9571-F0121819C437}" ShortID="870781254">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>footstep_branch_5.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="footstep_branch_5" ID="{407B8843-D90A-4904-9571-F0121819C437}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-								</BlendContainer>
-								<BlendContainer Name="footsteps_02" ID="{2A8FA8DC-45B3-4672-9A0D-F8B76DEEDF1A}" ShortID="464693079">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{F46E7A4D-6640-4620-8965-95374B1D0F0A}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="20"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>250</Value>
-											</ValueList>
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{FB1D4C38-FA7D-47F0-A63F-9DEF7C8CE07E}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="200"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="footsteps" ID="{3696BA20-1C9C-4673-BDA6-7E8B5453BB34}" ShortID="827017653">
-											<PropertyList>
-												<Property Name="Lowpass" Type="int16">
-													<ValueList>
-														<Value>20</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ValueList>
-														<Value>800</Value>
-													</ValueList>
-												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_4" ID="{F7ED01F8-75CE-4FD8-9B5B-C9AA18B0EA0E}" ShortID="482005165" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_4" ID="{CBF41766-F276-49BC-8594-4168D653CC16}" ShortID="44386304">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="607362798"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_4" ID="{CBF41766-F276-49BC-8594-4168D653CC16}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_1" ID="{8B271CB7-41AA-4AB7-A800-5E27BD0E92BD}" ShortID="400581620" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_1" ID="{14017698-8D6B-476E-B8DB-2FA9AD5E771D}" ShortID="521903244">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="65494664"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_1" ID="{14017698-8D6B-476E-B8DB-2FA9AD5E771D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_3" ID="{5EF2AB67-627B-467F-8556-0DB2EC5C28D3}" ShortID="164503897" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_3" ID="{8C2C63B4-71E5-415A-A601-C9C19F1FA3D4}" ShortID="284526232">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="544886190"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_3" ID="{8C2C63B4-71E5-415A-A601-C9C19F1FA3D4}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_2" ID="{92AE599D-35E5-409B-899D-0901F3DC098F}" ShortID="600569085" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_2" ID="{CBB170E5-5C28-4B12-9113-560031448432}" ShortID="934039928">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="608821874"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_2" ID="{CBB170E5-5C28-4B12-9113-560031448432}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_5" ID="{F44566F6-5324-440C-8607-3A96EFF77F0F}" ShortID="239304995" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_5" ID="{B648989D-4E15-4443-AC9B-4D8D60F5114D}" ShortID="952999739">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="22198494"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_5" ID="{B648989D-4E15-4443-AC9B-4D8D60F5114D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="footstep_branches" ID="{7BFF7220-8D34-4924-B3B5-FFBB540E50F4}" ShortID="540382940">
-											<PropertyList>
-												<Property Name="Highpass" Type="int16">
-													<ValueList>
-														<Value>50</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{F51C20C3-BEC7-4040-99B9-9C4C0653BB79}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="400"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_branch_1" ID="{8A59E7F2-3C3D-409F-9CA6-E46DB1A3AB64}" ShortID="748362960" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_1" ID="{7368DD70-3660-40F6-89DD-CE36C5158FDF}" ShortID="610848807">
-															<PropertyList>
-																<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="648218209"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_1" ID="{7368DD70-3660-40F6-89DD-CE36C5158FDF}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_2" ID="{15F72B4B-0B9B-470C-B2E6-B086483D8939}" ShortID="596637801" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_2" ID="{08555574-61DE-4030-9881-07A10A30492A}" ShortID="38616258">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="728707587"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_2" ID="{08555574-61DE-4030-9881-07A10A30492A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_3" ID="{0FD19F77-3367-4964-A759-5509FAD32FD4}" ShortID="217621926" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<PropertyList>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>34</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-400</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_3" ID="{4649E12F-D641-456F-BF0B-C33B5E15CBAE}" ShortID="538523942">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="116425071"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_3" ID="{4649E12F-D641-456F-BF0B-C33B5E15CBAE}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_4" ID="{7BA26E17-60FA-4ADD-B8E6-3941D8D89907}" ShortID="897089604" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_4" ID="{56056BEB-578A-47A9-9BD2-7191299E8E20}" ShortID="387507169">
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="401517112"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_4" ID="{56056BEB-578A-47A9-9BD2-7191299E8E20}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_6" ID="{B23978BC-124B-4B0D-B91E-9AB37CE72FE9}" ShortID="571367252" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_6" ID="{1FC728D9-F16E-408F-B20C-717DA01B22E4}" ShortID="207585639">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_6.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="478478280"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_6" ID="{1FC728D9-F16E-408F-B20C-717DA01B22E4}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_5" ID="{53D77003-6A29-448E-9403-F29E02E2D0CD}" ShortID="603714211" Type="SoundFX">
-													<PropertyList>
-														<Property Name="OutputBusVolume" Type="Real64">
-															<ValueList>
-																<Value>-17</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverrideOutput" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-5</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_5" ID="{BB1BBF74-7DEA-4708-8C8F-BFDC695A31E2}" ShortID="884490716">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="870781254"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_5" ID="{BB1BBF74-7DEA-4708-8C8F-BFDC695A31E2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-									</ChildrenList>
-								</BlendContainer>
-								<BlendContainer Name="footsteps_03" ID="{926D72DE-9B65-477C-B152-BE3271E36F29}" ShortID="846452107">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{8AB21CDA-9F69-4ECF-9BAF-A64BF5C26904}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="20"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>250</Value>
-											</ValueList>
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{CA3B7624-9358-4785-9E2C-6E68707C938D}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="200"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="footsteps" ID="{2EA04242-6FA3-4269-84C9-CBB80CE9ED57}" ShortID="851608643">
-											<PropertyList>
-												<Property Name="Lowpass" Type="int16">
-													<ValueList>
-														<Value>20</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ValueList>
-														<Value>800</Value>
-													</ValueList>
-												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_4" ID="{EF74D416-6ED3-4425-B53D-42B897C0781C}" ShortID="46625517" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_4" ID="{05940A36-6CEC-400E-9165-E75F280D497B}" ShortID="278489511">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="607362798"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_4" ID="{05940A36-6CEC-400E-9165-E75F280D497B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_1" ID="{7E6240B6-3132-40D6-8B9F-2E6A7218BE3B}" ShortID="317628403" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_1" ID="{96D8A3C2-A885-44B9-8A30-8CF467D7C9D4}" ShortID="1045467076">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="65494664"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_1" ID="{96D8A3C2-A885-44B9-8A30-8CF467D7C9D4}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_3" ID="{3FA087C7-A888-4AEA-BDF3-E4861ECF91ED}" ShortID="198247473" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_3" ID="{8C92C30C-9930-423F-B75C-481BA6C3F931}" ShortID="59935462">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="544886190"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_3" ID="{8C92C30C-9930-423F-B75C-481BA6C3F931}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_2" ID="{C012EEE6-426E-43CA-9768-7640B8EAA8D4}" ShortID="1031403856" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_2" ID="{8456CC4B-E805-4FF6-80B1-AA9A67FFD28C}" ShortID="733584288">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="608821874"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_2" ID="{8456CC4B-E805-4FF6-80B1-AA9A67FFD28C}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_5" ID="{3486546A-F3AA-4B15-9861-1E28B33AA5D5}" ShortID="12098934" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_5" ID="{3956086C-E48E-4512-9947-E928E7AA5811}" ShortID="996465746">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="22198494"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_5" ID="{3956086C-E48E-4512-9947-E928E7AA5811}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="footstep_branches" ID="{B25F1BC2-73F0-4C88-B481-E7742CA83146}" ShortID="514436835">
-											<PropertyList>
-												<Property Name="Highpass" Type="int16">
-													<ValueList>
-														<Value>50</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{500D3F88-0B45-4EE0-AB7C-7B5DB96E30B2}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="400"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_branch_1" ID="{77C47489-3147-44C1-AAEC-94B887E94ADD}" ShortID="70452459" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_1" ID="{C63787DB-DE0A-449B-A32F-5C6F1E32855D}" ShortID="747963239">
-															<PropertyList>
-																<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="648218209"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_1" ID="{C63787DB-DE0A-449B-A32F-5C6F1E32855D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_2" ID="{BA7560AF-0E50-408C-8B88-183F3E60E78B}" ShortID="498604378" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_2" ID="{FEACEA32-C035-4046-B983-82062C750C3B}" ShortID="723430378">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="728707587"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_2" ID="{FEACEA32-C035-4046-B983-82062C750C3B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_3" ID="{0E7A3E8A-8A1F-4F4D-9C74-06B2A195908E}" ShortID="281724019" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<PropertyList>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>34</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-400</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_3" ID="{410733AB-5B39-4200-8E2F-D0A2E4D1A5C6}" ShortID="516126496">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="116425071"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_3" ID="{410733AB-5B39-4200-8E2F-D0A2E4D1A5C6}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_4" ID="{279CAB93-C41D-42A0-85A9-5728471F6705}" ShortID="709119123" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_4" ID="{90ADB171-6976-4812-BCD3-96AEED32E002}" ShortID="542764606">
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="401517112"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_4" ID="{90ADB171-6976-4812-BCD3-96AEED32E002}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_6" ID="{74A40613-5648-4952-BFD9-7CDA15D3BDCB}" ShortID="206208740" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_6" ID="{F123801A-929B-4DFE-BC20-CA67772E832F}" ShortID="1069542082">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_6.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="478478280"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_6" ID="{F123801A-929B-4DFE-BC20-CA67772E832F}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_5" ID="{45615385-2E18-40FD-A9F8-3C61ED584C4F}" ShortID="638449558" Type="SoundFX">
-													<PropertyList>
-														<Property Name="OutputBusVolume" Type="Real64">
-															<ValueList>
-																<Value>-17</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverrideOutput" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-5</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_5" ID="{51FEE729-0887-450C-A1C9-BD5CD92E9E13}" ShortID="897421842">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="870781254"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_5" ID="{51FEE729-0887-450C-A1C9-BD5CD92E9E13}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-									</ChildrenList>
-								</BlendContainer>
-								<BlendContainer Name="footsteps_04" ID="{97C38427-9A28-4CB1-8430-8CBF3E4E3907}" ShortID="533140707">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{28C28096-BBB2-4002-9686-00ADC88179F2}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="20"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>250</Value>
-											</ValueList>
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{02024012-FE18-4FBB-B2CD-B59E8B856691}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="200"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="footsteps" ID="{DE912740-E3B0-4066-9A86-2F4AB414520F}" ShortID="501757974">
-											<PropertyList>
-												<Property Name="Lowpass" Type="int16">
-													<ValueList>
-														<Value>20</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ValueList>
-														<Value>800</Value>
-													</ValueList>
-												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_4" ID="{673813F1-D391-4738-B99C-02C4C732400A}" ShortID="367117408" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_4" ID="{BF37416E-58F4-45A8-87B2-88FF185C490D}" ShortID="1053075392">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="607362798"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_4" ID="{BF37416E-58F4-45A8-87B2-88FF185C490D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_1" ID="{F4BDABF1-CB6D-43F3-A841-54C357BD93B7}" ShortID="466451019" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_1" ID="{D4095BF1-A6D8-4905-8FE6-40908E126736}" ShortID="782151274">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="65494664"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_1" ID="{D4095BF1-A6D8-4905-8FE6-40908E126736}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_3" ID="{8B40F8E0-57C0-4295-B84F-7D1E217DD4C4}" ShortID="306053422" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_3" ID="{0738676A-6460-474A-B3B8-B205329F755A}" ShortID="184708973">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="544886190"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_3" ID="{0738676A-6460-474A-B3B8-B205329F755A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_2" ID="{34CEC7E8-A11C-452E-A757-ECD36F14AA10}" ShortID="346227409" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_2" ID="{6ABD2EA3-6CD8-4EC8-B2F8-B28C77B89287}" ShortID="916270737">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="608821874"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_2" ID="{6ABD2EA3-6CD8-4EC8-B2F8-B28C77B89287}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_5" ID="{22499DD5-EED0-44DB-B259-F9B310B6C2ED}" ShortID="662622418" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_5" ID="{80F9B129-4B75-4F6A-B791-16A1EC915EC2}" ShortID="355530534">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="22198494"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_5" ID="{80F9B129-4B75-4F6A-B791-16A1EC915EC2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="footstep_branches" ID="{F5B59AB3-675C-4D0A-AB28-2C4D409F5E29}" ShortID="524847413">
-											<PropertyList>
-												<Property Name="Highpass" Type="int16">
-													<ValueList>
-														<Value>50</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{DC0E3D71-E594-4B96-B6B3-BBEEBC4D532B}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="400"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_branch_1" ID="{6A064EEC-3738-47EC-AAE4-3DF20F08A52B}" ShortID="581404391" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_1" ID="{81A92213-5E56-473A-9FD2-789222BCA013}" ShortID="109325178">
-															<PropertyList>
-																<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="648218209"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_1" ID="{81A92213-5E56-473A-9FD2-789222BCA013}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_2" ID="{0F118AD7-A083-4C03-BFF4-EFADBCDC0B9A}" ShortID="868516962" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_2" ID="{EE170084-362B-46C4-A98C-A9715B429222}" ShortID="24611288">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="728707587"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_2" ID="{EE170084-362B-46C4-A98C-A9715B429222}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_3" ID="{A3E01B2F-8351-4A2A-AC85-9298C7E0CEBA}" ShortID="675149862" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<PropertyList>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>34</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-400</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_3" ID="{B84C4AF9-7D8C-41B2-A26A-840038129C7E}" ShortID="47357206">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="116425071"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_3" ID="{B84C4AF9-7D8C-41B2-A26A-840038129C7E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_4" ID="{4E219BF1-AB83-438C-BC9A-D422C5353444}" ShortID="652910568" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_4" ID="{B0ADDEA7-9E3C-47D9-AC5D-1262AAA62474}" ShortID="581618156">
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="401517112"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_4" ID="{B0ADDEA7-9E3C-47D9-AC5D-1262AAA62474}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_6" ID="{B4B2E9FD-D714-404F-AE29-5F79C3AD410D}" ShortID="321586146" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_6" ID="{CE8E69EF-EACD-4915-BED8-4B2433FF65A2}" ShortID="138333824">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_6.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="478478280"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_6" ID="{CE8E69EF-EACD-4915-BED8-4B2433FF65A2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_5" ID="{750B18C8-4D43-41CA-BCB6-27A578438FD3}" ShortID="520775470" Type="SoundFX">
-													<PropertyList>
-														<Property Name="OutputBusVolume" Type="Real64">
-															<ValueList>
-																<Value>-17</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverrideOutput" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-5</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_5" ID="{F88F015D-EC8D-4D04-92FE-FB38B5AF943D}" ShortID="1034996573">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="870781254"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_5" ID="{F88F015D-EC8D-4D04-92FE-FB38B5AF943D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-									</ChildrenList>
-								</BlendContainer>
-								<BlendContainer Name="footsteps_05" ID="{579D67F5-93EB-4EF6-8FB5-31E2E9796EB0}" ShortID="701499213">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{7BDFA94D-FAB9-4F8C-B505-555C6192DD7E}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="20"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>250</Value>
-											</ValueList>
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{9CF057D2-36E8-4198-BAD9-C260D97D1E5D}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="200"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="footsteps" ID="{3EAA0463-8E9A-4EF6-8BF5-D3B015782305}" ShortID="516083506">
-											<PropertyList>
-												<Property Name="Lowpass" Type="int16">
-													<ValueList>
-														<Value>20</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ValueList>
-														<Value>800</Value>
-													</ValueList>
-												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_4" ID="{B4D49792-89B5-4513-A4D2-B5DBC35DEBA4}" ShortID="556407055" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_4" ID="{D774FABA-D464-4A19-A1B5-30BB42420CFD}" ShortID="423409616">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.17589285714286E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.9897693452381E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.32088913690476E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.244753720238095"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="607362798"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_4" ID="{D774FABA-D464-4A19-A1B5-30BB42420CFD}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_1" ID="{B80F6CBB-5B25-4739-90C8-B7DDFBA4506E}" ShortID="239882500" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_1" ID="{78115BFA-1B4C-4CB9-AABB-511888548CBF}" ShortID="145620286">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.68414015997024E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="8.31001209077378E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.64917922247024E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.273146484375"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="65494664"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_1" ID="{78115BFA-1B4C-4CB9-AABB-511888548CBF}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_3" ID="{05E5CAD4-68E1-4505-A002-1D215ED42BFC}" ShortID="67492431" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_3" ID="{5A680752-500D-4DB2-8188-F257B2530C60}" ShortID="648215470">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="6.39629836309524E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.03329613095238E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.027035900297619"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.194856305803572"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="544886190"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_3" ID="{5A680752-500D-4DB2-8188-F257B2530C60}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_2" ID="{D79E0BD3-35DD-4E72-A7D0-AB419FFCFBBA}" ShortID="998244021" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_2" ID="{256C276F-EAE4-48DF-AFB2-5ED40CA44DA5}" ShortID="792587932">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="4.21551339285714E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="9.06138392857142E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.90033482142857E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.269871651785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="608821874"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_2" ID="{256C276F-EAE4-48DF-AFB2-5ED40CA44DA5}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_5" ID="{729B5A32-C8D3-4B57-BEB6-C77DBB196CC5}" ShortID="593836594" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_5" ID="{4D6A26FD-955C-412F-B5A5-F3FD6DB9D961}" ShortID="425435571">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="9.32436755952381E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.79985119047621E-03"/>
-																<Property Name="TrimBegin" Type="Real64" Value="3.93537946428572E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.279731026785714"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="22198494"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_5" ID="{4D6A26FD-955C-412F-B5A5-F3FD6DB9D961}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="footstep_branches" ID="{DCBB4A27-5ACD-4E12-8BB0-02B99CCD949B}" ShortID="880895206">
-											<PropertyList>
-												<Property Name="Highpass" Type="int16">
-													<ValueList>
-														<Value>50</Value>
-													</ValueList>
-												</Property>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{524C4399-29D1-49D7-90EE-DD0430425E27}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="400"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="footstep_branch_1" ID="{D7014FF5-28CB-41D1-BC7B-ABFA37650634}" ShortID="1040849614" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_1" ID="{E12BFF34-05F9-41F9-9FA0-4B4D4C507423}" ShortID="334041769">
-															<PropertyList>
-																<Property Name="TrimBegin" Type="Real64" Value="0.133731778425656"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_1.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="648218209"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_1" ID="{E12BFF34-05F9-41F9-9FA0-4B4D4C507423}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_2" ID="{DB3BB477-5D73-4C6B-999C-E30E8CC76D7E}" ShortID="1065050708" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_2" ID="{94FE8A42-E764-4BB2-8A44-73A0F2F6AF79}" ShortID="558307594">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="5.58946793002915E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1.06199890670554E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.149797740524781"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.448834274781341"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_2.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="728707587"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_2" ID="{94FE8A42-E764-4BB2-8A44-73A0F2F6AF79}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_3" ID="{C352FC95-7BB7-40A4-BA49-211E0A907021}" ShortID="260145865" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<PropertyList>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>34</Value>
-															</ValueList>
-														</Property>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-400</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_3" ID="{BBE2C62E-A787-4912-816E-A56A3C07ACF0}" ShortID="1004066505">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.075237184159378"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="3.17176364593457E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="4.94205033203758E-02"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.360695912293489"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_3.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="116425071"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_3" ID="{BBE2C62E-A787-4912-816E-A56A3C07ACF0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_4" ID="{1632E6A4-FD5A-40FF-BAAC-4020AF328138}" ShortID="539156132" Type="SoundFX">
-													<ExcludedPlatformList>
-														<Platform>Android</Platform>
-													</ExcludedPlatformList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_4" ID="{E93ECA07-927A-46A8-8EDB-C58DF8482DDB}" ShortID="825424121">
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_4.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="401517112"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_4" ID="{E93ECA07-927A-46A8-8EDB-C58DF8482DDB}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_6" ID="{F86C380C-BC6A-4701-B69E-71ABAEE42843}" ShortID="420854591" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_6" ID="{AAD2971D-DAB2-4D49-BE80-5A17A342D98B}" ShortID="89360426">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="1.43535390346615E-02"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2.15303085519922E-02"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.309253522837707"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.508898202137997"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_6.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="478478280"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_6" ID="{AAD2971D-DAB2-4D49-BE80-5A17A342D98B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="footstep_branch_5" ID="{219134AE-0D80-4E0C-8C4E-C5FBAEF6CEC3}" ShortID="925585898" Type="SoundFX">
-													<PropertyList>
-														<Property Name="OutputBusVolume" Type="Real64">
-															<ValueList>
-																<Value>-17</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverrideOutput" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-5</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C7237F65-87F0-4749-9391-44FD0D5EA993}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="footstep_branch_5" ID="{10EBEE54-31C4-42C0-A5F4-58CB97E85B53}" ShortID="835068086">
-															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="3.24268100097182E-03"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.021401694606414"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.121276269436346"/>
-																<Property Name="TrimEnd" Type="Real64" Value="0.370314170310982"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>footstep_branch_5.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="870781254"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="footstep_branch_5" ID="{10EBEE54-31C4-42C0-A5F4-58CB97E85B53}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-									</ChildrenList>
-								</BlendContainer>
+								</RandomSequenceContainer>
 							</ChildrenList>
-						</RandomSequenceContainer>
+						</BlendContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Items" ID="{69EB1ACF-99E6-4A16-AC4F-B537A1C5FE19}" ShortID="1070463246">
@@ -3519,6 +1378,11 @@
 											<Modifier Name="" ID="{CC48CD57-DA08-4767-93E2-24EBAC059E41}"/>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -3771,6 +1635,11 @@
 												<Value>-250</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -3967,6 +1836,11 @@
 												<Value>-250</Value>
 											</ValueList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -3991,6 +1865,11 @@
 						<BlendContainer Name="troll_cake_hit" ID="{4BEC6D1E-9E6C-49D6-953D-341CB2925756}" ShortID="734918023">
 							<PropertyList>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -4139,6 +2018,11 @@
 						<BlendContainer Name="troll_eating" ID="{50112A50-8AA2-4E40-A104-040A66F0C148}" ShortID="792154714">
 							<PropertyList>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -4424,6 +2308,11 @@
 										<Value>32</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>330</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4511,6 +2400,13 @@
 							</ChildrenList>
 						</BlendContainer>
 						<Sound Name="newRecord" ID="{358BE7B1-851C-4397-B76D-B0F466FC9BA8}" ShortID="917223280" Type="SoundFX">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
@@ -4530,6 +2426,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="youLost" ID="{ACF13BE4-63D8-49FC-AE7D-A38DBE00DC20}" ShortID="89868110" Type="SoundFX">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{AECBEF3B-C2F1-40AA-9938-94C1749CECEF}"/>
