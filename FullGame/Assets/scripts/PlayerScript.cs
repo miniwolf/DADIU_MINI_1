@@ -104,8 +104,9 @@ public class PlayerScript : MonoBehaviour, Player {
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
 		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
-			if(hit.transform.tag!=Constants.CAKE)
+			if ( hit.transform.tag != Constants.CAKEICON ) {
 				agent.destination = hit.point;
+			}
 		}
 	}
 
