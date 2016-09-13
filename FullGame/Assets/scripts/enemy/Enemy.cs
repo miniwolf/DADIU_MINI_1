@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour {
                 now = Time.time;
             }
             navAgent.destination = following.transform.position;
-			transform.LookAt(navAgent.nextPosition);
+			transform.LookAt(following.transform.position);
 		} else {
 			navAgent.Stop (); // stop agent from evaluating path
 		}

@@ -27,8 +27,6 @@ public class PlayerScript : MonoBehaviour, Player {
 	public float animatorSpeedUp;
 	// Use this for initialization
 	void Start() {
-		speedup = 2 * speed;
-
 		animator = gameObject.GetComponentInChildren<Animator> ();
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
