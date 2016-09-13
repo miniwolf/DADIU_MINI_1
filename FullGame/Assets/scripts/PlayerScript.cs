@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Diagnostics;
 
-// TODO implements interface
 public class PlayerScript : MonoBehaviour, Player {
 	public int speed = 6;
 	public int speedup;
+	public int slowdown;
 	public int angularSpeed = 120;
 	public int speedupTime = 1;
+	public int slowdownTime = 1;
 
 	// External components
 	private Camera cam;
@@ -19,7 +20,6 @@ public class PlayerScript : MonoBehaviour, Player {
 	// Internal components
 	private NavMeshAgent agent;
 	private Stopwatch timer;
-
 	private bool hasBeenCaught;
 
 	Animator animator;
@@ -74,6 +74,11 @@ public class PlayerScript : MonoBehaviour, Player {
 			score.AddLaundryScore();
 			StartCoroutine(SpeedUp()); // Speedup
 		}
+
+		if( other.gameObject.tag == Constants.MUSHROOM) {
+			other.gameObject.SetActive(false); // TODO replace with Despawn method
+			StartCoroutine(SlowDown()); // Slowdown
+		}
 	}
 
 	IEnumerator SpeedUp() {
@@ -83,6 +88,13 @@ public class PlayerScript : MonoBehaviour, Player {
 
 		agent.speed -= speedup;
 		animator.speed -= animatorSpeedUp;
+	}
+
+	IEnumerator SlowDown() {
+		agent.speed -= slowdown;
+		yield return new WaitForSeconds(slowdownTime);
+
+		agent.speed += slowdown;
 	}
 
 	/// <summary>
