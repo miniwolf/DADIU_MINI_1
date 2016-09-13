@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public interface MainMenuInterface {
 	void HideIntroStory();
 	void ShowIntroStory();
@@ -12,4 +13,3 @@ public interface MainMenuInterface {
 	void ShowMenu();
 	void HideMenu();
 }
-
