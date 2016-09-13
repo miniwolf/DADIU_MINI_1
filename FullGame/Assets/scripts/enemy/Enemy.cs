@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour {
 	// Personal components
 	private NavMeshAgent navAgent;
 	private Animator animator;
+    private float now;
 
 	void Start() {
 		animator = GetComponentInChildren<Animator>();
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour {
         AkSoundEngine.PostEvent("trollRoar", GameObject.FindGameObjectWithTag(Constants.SOUND));  
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
 		following = GameObject.FindGameObjectWithTag(Constants.PLAYER);
+        now = Time.time;
 	}
 
 	// Update is called once per frame
@@ -42,6 +44,10 @@ public class Enemy : MonoBehaviour {
 			navAgent.Resume(); // resume agent 
             UpdateSpeed();
             StartMoving();
+            if (Time.time - now > 0.35) {
+                AkSoundEngine.PostEvent("trollFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+                now = Time.time;
+            }
             navAgent.destination = following.transform.position;
 			transform.LookAt(navAgent.nextPosition);
 		} else {

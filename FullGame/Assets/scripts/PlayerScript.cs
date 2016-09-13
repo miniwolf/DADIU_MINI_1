@@ -15,12 +15,17 @@ public class PlayerScript : MonoBehaviour, Player {
 	private Camera cam;
 	private Score score;
 	private CakesText cakeText;
+<<<<<<< HEAD
 	private Cake cakeThrowing;
 
 	// Internal components
 	private NavMeshAgent agent;
 	private Stopwatch timer;
 	private bool hasBeenCaught;
+=======
+    private float now;
+	public int speedupTime = 1;
+>>>>>>> Step sounds
 
 	Animator animator;
 	public float animatorSpeedUp;
@@ -37,7 +42,8 @@ public class PlayerScript : MonoBehaviour, Player {
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
 		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
 		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
-        AkSoundEngine.PostEvent("auntieScream", GameObject.FindGameObjectWithTag(Constants.SOUND));
+		AkSoundEngine.PostEvent("auntieScream", GameObject.FindGameObjectWithTag(Constants.SOUND));
+        now = Time.time;
 	}
 
 	/// <summary>
@@ -61,7 +67,10 @@ public class PlayerScript : MonoBehaviour, Player {
 
 		if (agent.remainingDistance > 0.1) {
 			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", true);
-            //AkSoundEngine.PostEvent("auntieFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+            if (Time.time - now > 0.25) {
+                AkSoundEngine.PostEvent("auntieFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+                now = Time.time;
+            }
         } else {
 			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", false);
 		}
