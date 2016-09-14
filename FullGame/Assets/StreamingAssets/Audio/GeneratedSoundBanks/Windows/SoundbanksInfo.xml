@@ -29,11 +29,15 @@
 				<Event Id="4278306412" Name="auntieScream" ObjectPath="\Events\Default Work Unit\auntieScream"/>
 				<Event Id="3666468717" Name="auntieThrow" ObjectPath="\Events\Default Work Unit\auntieThrow"/>
 				<Event Id="3638507867" Name="forestSoundscape" ObjectPath="\Events\Default Work Unit\forestSoundscape"/>
+				<Event Id="174960569" Name="loose" ObjectPath="\Events\Default Work Unit\loose"/>
 				<Event Id="3711598968" Name="menuClick" ObjectPath="\Events\Default Work Unit\menuClick"/>
-				<Event Id="835295888" Name="trollFootstep" ObjectPath="\Events\Default Work Unit\trollFootstep" MaxAttenuation="50.000000"/>
-				<Event Id="306690129" Name="trollGrowl" ObjectPath="\Events\Default Work Unit\trollGrowl" MaxAttenuation="50.000000"/>
-				<Event Id="1173430014" Name="trollHitByCake" ObjectPath="\Events\Default Work Unit\trollHitByCake" MaxAttenuation="50.000000"/>
-				<Event Id="1067378438" Name="trollRoar" ObjectPath="\Events\Default Work Unit\trollRoar" MaxAttenuation="50.000000"/>
+				<Event Id="3594466803" Name="trollCatchLaughter" ObjectPath="\Events\Default Work Unit\trollCatchLaughter"/>
+				<Event Id="410468912" Name="trollEating" ObjectPath="\Events\Default Work Unit\trollEating" MaxAttenuation="25.000000"/>
+				<Event Id="835295888" Name="trollFootstep" ObjectPath="\Events\Default Work Unit\trollFootstep" MaxAttenuation="25.000000"/>
+				<Event Id="306690129" Name="trollGrowl" ObjectPath="\Events\Default Work Unit\trollGrowl" MaxAttenuation="25.000000"/>
+				<Event Id="1173430014" Name="trollHitByCake" ObjectPath="\Events\Default Work Unit\trollHitByCake" MaxAttenuation="25.000000"/>
+				<Event Id="1067378438" Name="trollRoar" ObjectPath="\Events\Default Work Unit\trollRoar" MaxAttenuation="25.000000"/>
+				<Event Id="979765101" Name="win" ObjectPath="\Events\Default Work Unit\win"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="22198494" Language="SFX">
@@ -43,6 +47,10 @@
 				<File Id="65494664" Language="SFX">
 					<ShortName>footstep_1.wav</ShortName>
 					<Path>SFX\footstep_1_C13129E7.wem</Path>
+				</File>
+				<File Id="79779153" Language="SFX">
+					<ShortName>troll_eating_3.wav</ShortName>
+					<Path>SFX\troll_eating_3_6C4CB798.wem</Path>
 				</File>
 				<File Id="80040531" Language="SFX">
 					<ShortName>auntie_gasp_3.wav</ShortName>
@@ -71,6 +79,10 @@
 				<File Id="353953596" Language="SFX">
 					<ShortName>click_2.wav</ShortName>
 					<Path>SFX\click_2_657A035A.wem</Path>
+				</File>
+				<File Id="374101223" Language="SFX">
+					<ShortName>troll_growl_eating_1.wav</ShortName>
+					<Path>SFX\troll_growl_eating_1_EDFC8A1A.wem</Path>
 				</File>
 				<File Id="391961493" Language="SFX">
 					<ShortName>auntie_gasp_1.wav</ShortName>
@@ -104,6 +116,10 @@
 					<ShortName>footstep_4.wav</ShortName>
 					<Path>SFX\footstep_4_9533C134.wem</Path>
 				</File>
+				<File Id="608303896" Language="SFX">
+					<ShortName>youLost.wav</ShortName>
+					<Path>SFX\youLost_2232E272.wem</Path>
+				</File>
 				<File Id="608821874" Language="SFX">
 					<ShortName>footstep_2.wav</ShortName>
 					<Path>SFX\footstep_2_EC6B4DBD.wem</Path>
@@ -111,6 +127,10 @@
 				<File Id="613143469" Language="SFX">
 					<ShortName>troll_footstep_2.wav</ShortName>
 					<Path>SFX\troll_footstep_2_9E69E797.wem</Path>
+				</File>
+				<File Id="626231314" Language="SFX">
+					<ShortName>newRecord.wav</ShortName>
+					<Path>SFX\newRecord_9E69E797.wem</Path>
 				</File>
 				<File Id="633564183" Language="SFX">
 					<ShortName>troll_hit_5.wav</ShortName>
@@ -195,6 +215,10 @@
 				<File Id="1009520321" Language="SFX">
 					<ShortName>troll_footstep_3.wav</ShortName>
 					<Path>SFX\troll_footstep_3_9E69E797.wem</Path>
+				</File>
+				<File Id="1052837763" Language="SFX">
+					<ShortName>troll_laughter_3.wav</ShortName>
+					<Path>SFX\troll_laughter_3_9E69E797.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

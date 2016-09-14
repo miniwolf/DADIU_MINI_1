@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="118">
 	<RootPaths>
-		<ProjectRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\student\Documents\DADIU_MINI_1\FullGame\auntiesWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\student\Documents\DADIU_MINI_1\FullGame\auntiesWwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\student\Documents\DADIU_MINI_1\FullGame\auntiesWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\student\Documents\DADIU_MINI_1\FullGame\auntiesWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -32,11 +32,11 @@
 				<Event Id="174960569" Name="loose" ObjectPath="\Events\Default Work Unit\loose"/>
 				<Event Id="3711598968" Name="menuClick" ObjectPath="\Events\Default Work Unit\menuClick"/>
 				<Event Id="3594466803" Name="trollCatchLaughter" ObjectPath="\Events\Default Work Unit\trollCatchLaughter"/>
-				<Event Id="410468912" Name="trollEating" ObjectPath="\Events\Default Work Unit\trollEating" MaxAttenuation="100.000000"/>
-				<Event Id="835295888" Name="trollFootstep" ObjectPath="\Events\Default Work Unit\trollFootstep" MaxAttenuation="100.000000"/>
-				<Event Id="306690129" Name="trollGrowl" ObjectPath="\Events\Default Work Unit\trollGrowl" MaxAttenuation="100.000000"/>
-				<Event Id="1173430014" Name="trollHitByCake" ObjectPath="\Events\Default Work Unit\trollHitByCake" MaxAttenuation="100.000000"/>
-				<Event Id="1067378438" Name="trollRoar" ObjectPath="\Events\Default Work Unit\trollRoar" MaxAttenuation="100.000000"/>
+				<Event Id="410468912" Name="trollEating" ObjectPath="\Events\Default Work Unit\trollEating" MaxAttenuation="1500.000000"/>
+				<Event Id="835295888" Name="trollFootstep" ObjectPath="\Events\Default Work Unit\trollFootstep" MaxAttenuation="1500.000000"/>
+				<Event Id="306690129" Name="trollGrowl" ObjectPath="\Events\Default Work Unit\trollGrowl" MaxAttenuation="1500.000000"/>
+				<Event Id="1173430014" Name="trollHitByCake" ObjectPath="\Events\Default Work Unit\trollHitByCake" MaxAttenuation="1500.000000"/>
+				<Event Id="1067378438" Name="trollRoar" ObjectPath="\Events\Default Work Unit\trollRoar" MaxAttenuation="1500.000000"/>
 				<Event Id="979765101" Name="win" ObjectPath="\Events\Default Work Unit\win"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -118,7 +118,7 @@
 				</File>
 				<File Id="608303896" Language="SFX">
 					<ShortName>youLost.wav</ShortName>
-					<Path>SFX\youLost_16317BF4.wem</Path>
+					<Path>SFX\youLost_2232E272.wem</Path>
 				</File>
 				<File Id="608821874" Language="SFX">
 					<ShortName>footstep_2.wav</ShortName>

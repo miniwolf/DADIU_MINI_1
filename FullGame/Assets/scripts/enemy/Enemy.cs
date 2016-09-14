@@ -24,15 +24,17 @@ public class Enemy : MonoBehaviour {
 	private ScoreInterface score;
 	private GameObject following;
 
-	// Personal components
-	private NavMeshAgent navAgent;
+    // Personal components
+    private SoundController soundCtrl;
+    private NavMeshAgent navAgent;
 	private Animator animator;
     private float now;
 
 	void Start() {
 		animator = GetComponentInChildren<Animator>();
 		navAgent = GetComponent<NavMeshAgent>();
-        AkSoundEngine.PostEvent("trollRoar", GameObject.FindGameObjectWithTag(Constants.SOUND));  
+        soundCtrl = new SoundController();
+        soundCtrl.PlaySound("trollRoar", Constants.GAMESOUNDS);  
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<ScoreInterface>();
 		following = GameObject.FindGameObjectWithTag(Constants.PLAYER);
         now = Time.time;
@@ -45,7 +47,7 @@ public class Enemy : MonoBehaviour {
             UpdateSpeed();
             StartMoving();
             if (Time.time - now > 0.35) {
-                AkSoundEngine.PostEvent("trollFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+                soundCtrl.PlaySound("trollFootstep", Constants.GAMESOUNDS);
                 now = Time.time;
             }
             navAgent.destination = following.transform.position;
@@ -59,7 +61,7 @@ public class Enemy : MonoBehaviour {
 		if ( moving ) {
 			if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
 				StartCoroutine(StopMoving());
-                AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
+                soundCtrl.PlaySound("trollHitByCake", Constants.GAMESOUNDS);                
                 score.AddTrollScore();
 			}
 		}
@@ -69,9 +71,9 @@ public class Enemy : MonoBehaviour {
 			score.AddTrollScore();
 		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
-			//Change here to add the end screen
+            //Change here to add the end screen
+            soundCtrl.PlaySound("trollCatchLaughter", Constants.GAMESOUNDS);
 			GameObject.FindGameObjectWithTag("ReloadOBJ").GetComponent<Reload>().ReloadLevel();
-			AkSoundEngine.PostEvent("trollCatchLaughter", GameObject.FindGameObjectWithTag(Constants.SOUND));
 		}
 	}
 
@@ -98,12 +100,12 @@ public class Enemy : MonoBehaviour {
 
 	private void StartEating() {
 		animator.SetBool(eatingAnimation, true);
-        AkSoundEngine.PostEvent("trollEating", GameObject.FindGameObjectWithTag(Constants.SOUND));
+        soundCtrl.PlaySound("trollEating", Constants.GAMESOUNDS);
     }
 
 	private void StopEating() {
 		animator.SetBool(eatingAnimation, false);
-        AkSoundEngine.PostEvent("trollGrowl", GameObject.FindGameObjectWithTag(Constants.SOUND));
+        soundCtrl.PlaySound("trollGrowl", Constants.GAMESOUNDS);
     }
 
 	private void StartMoving() {

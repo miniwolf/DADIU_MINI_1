@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="72">
-	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3659633634" DateHigh="30543260"/>
+	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="872105053" DateHigh="30543454"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="3122764299" DateHigh="30541839"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="3123424845" DateHigh="30541839"/>
-	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Attenuations\Default Work Unit.wwu" DateLow="4169374274" DateHigh="30543254"/>
+	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Attenuations\Default Work Unit.wwu" DateLow="888526551" DateHigh="30543452"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Audio Devices\Default Work Unit.wwu" DateLow="2914440075" DateHigh="30542485"/>
-	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Auntie's Laundry.nelkj.wsettings" DateLow="477934835" DateHigh="30543102"/>
+	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Auntie's Laundry.nelkj.wsettings" DateLow="1283395625" DateHigh="30543454"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Auntie's Laundry.wproj" DateLow="2826166659" DateHigh="30543080"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Control Surface Sessions\Default Work Unit.wwu" DateLow="2914184911" DateHigh="30542485"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Conversion Settings\Default Work Unit.wwu" DateLow="2914259956" DateHigh="30542485"/>
@@ -22,7 +22,7 @@
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Effects\Factory iZotope Multiband Distortion.wwu" DateLow="3337576086" DateHigh="30541839"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="3331431915" DateHigh="30541839"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Effects\Factory McDSP Effects.wwu" DateLow="3025958630" DateHigh="30541839"/>
-	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Events\Default Work Unit.wwu" DateLow="4248206117" DateHigh="30543261"/>
+	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Events\Default Work Unit.wwu" DateLow="1372491087" DateHigh="30543448"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Game Parameters\Default Work Unit.wwu" DateLow="2912927879" DateHigh="30542485"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="3121933725" DateHigh="30541839"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="2913489454" DateHigh="30542485"/>
@@ -32,7 +32,7 @@
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Presets\Default Work Unit.wwu" DateLow="2913324347" DateHigh="30542485"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Queries\Default Work Unit.wwu" DateLow="2913244290" DateHigh="30542485"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Queries\Factory Queries.wwu" DateLow="3123880175" DateHigh="30541839"/>
-	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\SoundBanks\Default Work Unit.wwu" DateLow="1849633404" DateHigh="30543085"/>
+	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\SoundBanks\Default Work Unit.wwu" DateLow="3482961691" DateHigh="30543290"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="2913164225" DateHigh="30542485"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\States\Default Work Unit.wwu" DateLow="2913929734" DateHigh="30542485"/>
 	<ValidationCacheItem File="C:\Users\nelkj\OneDrive\Dokumenter\Unity\wwise test 2\auntiesWwise\Switches\Default Work Unit.wwu" DateLow="2912771623" DateHigh="30542485"/>

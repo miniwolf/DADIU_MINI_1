@@ -17,5 +17,5 @@ public class MuteGameSoundsIMG : MonoBehaviour {
 			gameSounds = false;
 		}
 		print("Toggled GameSounds");
-	}
+    }
 }

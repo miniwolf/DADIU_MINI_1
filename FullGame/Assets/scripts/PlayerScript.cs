@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour, Player {
 	private Camera cam;
 	private Score score;
 	private CakesText cakeText;
+    private SoundController soundCtrl;
 	private Cake cakeThrowing;
 
 	// Internal components
@@ -29,6 +30,7 @@ public class PlayerScript : MonoBehaviour, Player {
 	void Start() {
 		animator = gameObject.GetComponentInChildren<Animator> ();
 		agent = GetComponent<NavMeshAgent>();
+        soundCtrl = new SoundController();
 		agent.speed = speed;
 		agent.angularSpeed = angularSpeed;
 
@@ -36,7 +38,7 @@ public class PlayerScript : MonoBehaviour, Player {
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
 		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
 		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
-		AkSoundEngine.PostEvent("auntieScream", GameObject.FindGameObjectWithTag(Constants.SOUND));
+        soundCtrl.PlaySound("auntieScream", Constants.GAMESOUNDS);
         now = Time.time;
 	}
 
@@ -62,7 +64,7 @@ public class PlayerScript : MonoBehaviour, Player {
 		if (agent.remainingDistance > 0.1) {
 			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", true);
             if (Time.time - now > 0.25) {
-                AkSoundEngine.PostEvent("auntieFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+                soundCtrl.PlaySound("auntieFootstep", Constants.GAMESOUNDS);
                 now = Time.time;
             }
         } else {
@@ -78,7 +80,7 @@ public class PlayerScript : MonoBehaviour, Player {
 		// TODO: currently only works on testing with right mouse button
 		// These lines are only for testing.
 		if ( Input.GetMouseButtonDown(1) ) {
-            AkSoundEngine.PostEvent("auntieMoveClick", GameObject.FindGameObjectWithTag(Constants.SOUND));
+            soundCtrl.PlaySound("auntieMoveClick", Constants.GAMESOUNDS);
             Move(Input.mousePosition);
 		}
 	}
@@ -93,7 +95,7 @@ public class PlayerScript : MonoBehaviour, Player {
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 
-            AkSoundEngine.PostEvent("auntiePickUpCake", GameObject.FindGameObjectWithTag(Constants.SOUND));
+            soundCtrl.PlaySound("auntiePickUpCake", Constants.GAMESOUNDS);
 			cakeText.AddCake();
 			cakeThrowing.SetActive();
 		}
@@ -101,14 +103,15 @@ public class PlayerScript : MonoBehaviour, Player {
 		if ( other.gameObject.tag == Constants.LAUNDRY ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 			score.AddLaundryScore();
-			AkSoundEngine.PostEvent("auntiePickUpClothes", GameObject.FindGameObjectWithTag(Constants.SOUND));
+            soundCtrl.PlaySound("auntiePickUpClothes", Constants.GAMESOUNDS);
 			// speedup
 			StartCoroutine(SpeedUp());
 		}
 
 		if( other.gameObject.tag == Constants.MUSHROOM) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
-			StartCoroutine(SlowDown()); // Slowdown
+            soundCtrl.PlaySound("auntieGasp", Constants.GAMESOUNDS);
+            StartCoroutine(SlowDown()); // Slowdown
 		}
 	}
 

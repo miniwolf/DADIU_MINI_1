@@ -93,6 +93,7 @@
 					<ChildrenList>
 						<Action Name="Play" ID="{C6C5FEF7-D66F-4559-9603-A4EA93856A2A}" ShortID="30869152" Type="Play" Scope="One" Global="false">
 							<ExcludedPlatformList>
+								<Platform>Windows</Platform>
 								<Platform>Android</Platform>
 							</ExcludedPlatformList>
 							<ElementList>
@@ -109,9 +110,6 @@
 							</ElementList>
 						</Action>
 						<Action Name="Play" ID="{27FF493E-5A77-4408-BBA1-A21231FB4EF6}" ShortID="433803043" Type="Play" Scope="One" Global="false">
-							<PropertyList>
-								<Property Name="Delay" Type="Real64" Value="0.3"/>
-							</PropertyList>
 							<ElementList>
 								<Element ID="{EACF282D-752A-43BD-821A-AB5B265C86F6}" Global="false">
 									<ObjectRef Name="1up_1" ID="{D7095E8F-555E-4ABB-AC5F-E1D9705F3671}" WorkUnitID="{4894D0AA-BB15-415A-B2E2-9777C939BC4D}"/>
