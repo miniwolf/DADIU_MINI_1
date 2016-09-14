@@ -112,7 +112,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 
 	private void Reset() {
-		if ( cakeText.GetNumCakes() != 0 ) {
+		if ( cakeText.GetNumCakes() == 0 ) {
 			gameObject.SetActive(false);
 		}
 		transform.rotation = startRotation;
