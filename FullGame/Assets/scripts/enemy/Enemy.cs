@@ -62,6 +62,7 @@ public class Enemy : MonoBehaviour {
 
 		switch ( collision.gameObject.tag ) {
 		case Constants.CAKEICON: 
+			// don't collide with cake icon when it's not moving! (it's attached to girl's body)
 			if ( !collision.gameObject.GetComponent<Rigidbody>().velocity.Equals(Vector3.zero) ) {
 				StartCoroutine(StopMoving());
 				AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
