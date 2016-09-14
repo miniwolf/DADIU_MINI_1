@@ -70,8 +70,8 @@ public class Enemy : MonoBehaviour {
 		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
 			//Change here to add the end screen
-			GameObject.FindGameObjectWithTag("ReloadOBJ").GetComponent<Reload>().ReloadLevel();
 			AkSoundEngine.PostEvent("trollCatchLaughter", GameObject.FindGameObjectWithTag(Constants.SOUND));
+			GameObject.FindGameObjectWithTag("ReloadOBJ").GetComponent<Reload>().ReloadOnDeath();
 		}
 	}
 
@@ -113,6 +113,7 @@ public class Enemy : MonoBehaviour {
 
 	private void CatchGirl() {
 		moving = false;
+		//PlayerPrefs.SetInt("shouldShowMenu", 1);
 		following.GetComponent<Player>().GotCaught();
 		animator.SetBool(moveAnimation, false);
 		animator.SetTrigger(catchAnimation);
