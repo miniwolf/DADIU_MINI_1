@@ -16,17 +16,19 @@ public class PlayerScript : MonoBehaviour, Player {
 	private Score score;
 	private CakesText cakeText;
 	private Cake cakeThrowing;
+	private LayerMask layerMask;
 
 	// Internal components
 	private NavMeshAgent agent;
 	private Stopwatch timer;
 	private bool hasBeenCaught;
-    private float now;
+	private float now;
 
 	Animator animator;
 	public float animatorSpeedUp;
 	// Use this for initialization
 	void Start() {
+		layerMask = 1 << LayerMask.NameToLayer(Constants.GROUNDLAYER);
 		animator = gameObject.GetComponentInChildren<Animator> ();
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = speed;
@@ -37,7 +39,7 @@ public class PlayerScript : MonoBehaviour, Player {
 		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
 		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 		AkSoundEngine.PostEvent("auntieScream", GameObject.FindGameObjectWithTag(Constants.SOUND));
-        now = Time.time;
+		now = Time.time;
 	}
 
 	/// <summary>
@@ -46,7 +48,7 @@ public class PlayerScript : MonoBehaviour, Player {
 	/// <param name="pos">Position selected in the scene</param>
 	private void Move(Vector3 pos) {
 		RaycastHit hit;
-        if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit) ) {
+		if ( Physics.Raycast(cam.ScreenPointToRay(pos), out hit, 10000f, layerMask)) {
 			if ( hit.transform.tag != Constants.CAKEICON ) {
 				agent.destination = hit.point;
 			}
@@ -61,11 +63,11 @@ public class PlayerScript : MonoBehaviour, Player {
 
 		if (agent.remainingDistance > 0.1) {
 			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", true);
-            if (Time.time - now > 0.25) {
-                AkSoundEngine.PostEvent("auntieFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
-                now = Time.time;
-            }
-        } else {
+			if (Time.time - now > 0.25) {
+				AkSoundEngine.PostEvent("auntieFootstep", GameObject.FindGameObjectWithTag(Constants.SOUND));
+				now = Time.time;
+			}
+		} else {
 			gameObject.transform.GetComponentInChildren<Animator> ().SetBool ("isMoving", false);
 		}
 
@@ -97,7 +99,7 @@ public class PlayerScript : MonoBehaviour, Player {
 		if ( other.gameObject.tag == Constants.CAKE ) {
 			other.gameObject.SetActive(false); // TODO replace with Despawn method
 
-            AkSoundEngine.PostEvent("auntiePickUpCake", GameObject.FindGameObjectWithTag(Constants.SOUND));
+			AkSoundEngine.PostEvent("auntiePickUpCake", GameObject.FindGameObjectWithTag(Constants.SOUND));
 			cakeText.AddCake();
 			cakeThrowing.SetActive();
 		}
