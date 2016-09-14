@@ -16,8 +16,8 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	private Rigidbody ballBody;
 	private Camera playerCam;
 
-	private bool isShooting = false;
-	private bool mayThrow = false;
+	private bool isShooting;
+	private bool mayThrow;
 
 	private Animator animator;
 	private CakesTextInterface cakeText;
@@ -33,8 +33,8 @@ public class ThrowingCake : MonoBehaviour, Cake {
 		playerCam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponent<Transform>();
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesTextInterface>();
-		
-		gameObject.SetActive(false);
+
+		Reset();
 	}
 
 	public void OnMouseDown() {
@@ -43,8 +43,6 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 	public void OnMouseUp() {
 		up(Input.mousePosition);
-		animator.SetTrigger("Throw");
-        AkSoundEngine.PostEvent("auntieThrow", GameObject.FindGameObjectWithTag(Constants.SOUND));
     }
 	
 	public void Update() {
@@ -59,7 +57,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 				}
 
 			}
-			if ( mayThrow && touch.phase == TouchPhase.Ended ) {
+			if ( touch.phase == TouchPhase.Ended ) {
 				up(touch.position);
 			}
 		}
@@ -70,22 +68,31 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 
 	private void up(Vector3 position) {
-		if ( !isShooting ) {
-			Vector3 endPos = playerCam.ScreenToWorldPoint(position);
-			RaycastHit hit;
-			if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask) ) {
-				endPos = hit.point;
-			}
-			endPos.y = 0;
-
-			transform.parent = null;
-			Vector3 force = endPos - startPos;
-			ballBody.constraints = RigidbodyConstraints.FreezePositionY;
-			ballBody.AddForce(force.normalized * speed);
+		if ( isShooting || !mayThrow ) {
+			return;
 		}
+
+		animator.SetTrigger("Throw");
+		AkSoundEngine.PostEvent("auntieThrow", GameObject.FindGameObjectWithTag(Constants.SOUND));
+		Vector3 endPos = playerCam.ScreenToWorldPoint(position);
+		RaycastHit hit;
+		if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask) ) {
+			endPos = hit.point;
+		}
+		endPos.y = 0;
+
+		transform.parent = null;
+		Vector3 force = endPos - startPos;
+		ballBody.constraints = RigidbodyConstraints.FreezePositionY;
+		ballBody.AddForce(force.normalized * speed);
 
 		cakeText.RemoveCake();
 		isShooting = true;
+		StartCoroutine(WaitHack());
+	}
+
+	IEnumerator WaitHack() {
+		yield return new WaitForSeconds(0.2f);
 		mayThrow = false;
 	}
 
@@ -105,13 +112,12 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	}
 
 	private void Reset() {
-		if ( cakeText.GetNumCakes() == 0 ) {
+		if ( cakeText.GetNumCakes() != 0 ) {
 			gameObject.SetActive(false);
 		}
 		transform.rotation = startRotation;
 		ballBody.constraints = RigidbodyConstraints.FreezeAll;
 		isShooting = false;
-		mayThrow = false;
 	}
 
 	public void SetActive() {

@@ -71,15 +71,19 @@ public class PlayerScript : MonoBehaviour, Player {
 
 		ToggleMoving(agent.remainingDistance > 0.1);
 
+		if ( cakeThrowing.MayThrow() ) {
+			return;
+		}
+
 		foreach ( Touch touch in Input.touches ) {
 			Move(touch.position);
-        }
+		}
 
 		// TODO: currently only works on testing with right mouse button
 		// These lines are only for testing.
 		if ( Input.GetMouseButtonDown(1) ) {
-            AkSoundEngine.PostEvent("auntieMoveClick", GameObject.FindGameObjectWithTag(Constants.SOUND));
-            Move(Input.mousePosition);
+			AkSoundEngine.PostEvent("auntieMoveClick", GameObject.FindGameObjectWithTag(Constants.SOUND));
+			Move(Input.mousePosition);
 		}
 	}
 

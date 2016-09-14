@@ -56,18 +56,12 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if ( moving ) {
-			if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
-				StartCoroutine(StopMoving());
-                AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
-                score.AddTrollScore();
-			}
-		}
-
 		if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
 			StartCoroutine(StopMoving());
+			AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
 			score.AddTrollScore();
-		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
+		}
+		if ( moving && collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
 			//Change here to add the end screen
 			GameObject.FindGameObjectWithTag("ReloadOBJ").GetComponent<Reload>().ReloadLevel();
