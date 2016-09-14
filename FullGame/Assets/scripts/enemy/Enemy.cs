@@ -72,7 +72,8 @@ public class Enemy : MonoBehaviour {
 				StartCoroutine(StopMoving());
 				score.AddTrollScore();
 			}
-		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
+			// collide with player only if it's moving (not eating a cake or was hit by cake)
+		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) && moving) {
 			CatchGirl();
 			//Change here to add the end screen
 			GameObject.FindGameObjectWithTag("ReloadOBJ").GetComponent<Reload>().ReloadLevel();
