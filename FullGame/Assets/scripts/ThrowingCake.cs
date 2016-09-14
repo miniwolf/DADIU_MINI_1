@@ -32,7 +32,6 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 		playerCam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponent<Transform>();
-		Debug.Log(GameObject.FindGameObjectWithTag(Constants.CAKETEXT));
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesTextInterface>();
 
 		Reset();

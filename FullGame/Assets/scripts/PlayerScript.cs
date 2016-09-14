@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Diagnostics;
 
 public class PlayerScript : MonoBehaviour, Player {
 	public int speed = 6;
@@ -20,7 +19,6 @@ public class PlayerScript : MonoBehaviour, Player {
 
 	// Internal components
 	private NavMeshAgent agent;
-	private Stopwatch timer;
 	private bool hasBeenCaught;
 	private float now;
 
