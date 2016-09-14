@@ -15,6 +15,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	private Transform player;
 	private Rigidbody ballBody;
 	private Camera playerCam;
+    private SoundController soundCtrl;
 
 	private bool isShooting;
 	private bool mayThrow;
@@ -25,7 +26,8 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	public void Start() {
 		layerMask = 1 << LayerMask.NameToLayer(Constants.GROUNDLAYER);
 
-		animator = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponentInChildren<Animator>();
+        soundCtrl = new SoundController();
+        animator = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponentInChildren<Animator>();
 
 		ballBody = gameObject.GetComponent<Rigidbody>();
 		startRotation = ballBody.rotation;
@@ -73,7 +75,7 @@ public class ThrowingCake : MonoBehaviour, Cake {
 		}
 
 		animator.SetTrigger("Throw");
-		AkSoundEngine.PostEvent("auntieThrow", GameObject.FindGameObjectWithTag(Constants.SOUND));
+		soundCtrl.PlaySound("auntieThrow", Constants.GAMESOUNDS);
 		Vector3 endPos = playerCam.ScreenToWorldPoint(position);
 		RaycastHit hit;
 		if ( Physics.Raycast(playerCam.ScreenPointToRay(position), out hit, 10000f, layerMask) ) {

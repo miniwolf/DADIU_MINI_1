@@ -4,6 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{E9CD3339-A892-4AE5-98F2-A1D600B4873D}" PersistMode="Standalone">
 			<ChildrenList>
 				<Attenuation Name="troll" ID="{7632F956-AFBD-4336-8248-C9F1B1D833C1}" ShortID="323368890">
+					<PropertyList>
+						<Property Name="RadiusMax" Type="Real64" Value="1500"/>
+					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
 							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -19,7 +22,12 @@
 											<SegmentShape>SCurve</SegmentShape>
 										</Point>
 										<Point>
-											<XPos>100</XPos>
+											<XPos>40</XPos>
+											<YPos>0</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>1500</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -46,7 +54,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>100</XPos>
+											<XPos>1500</XPos>
 											<YPos>30</YPos>
 											<Flags>37</Flags>
 										</Point>

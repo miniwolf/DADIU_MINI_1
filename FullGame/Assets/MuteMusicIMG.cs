@@ -14,10 +14,14 @@ public class MuteMusicIMG : MonoBehaviour {
 		if (!music) {
 			gameObject.GetComponent<Image> ().sprite = imgs [1];
 			music = true;
-		}else{
+            AkSoundEngine.PostEvent("forestSoundscape", GameObject.FindGameObjectWithTag(Constants.SOUND));
+        }
+        else{
 			gameObject.GetComponent<Image> ().sprite = imgs [0];
 			music = false;
-		}
+            AkSoundEngine.StopAll();
+
+        }
 		print ("Toggled Music");
 	}
 }

@@ -8,8 +8,9 @@ public class GridPlane : MonoBehaviour, GridInterface {
 
 	[HideInInspector]
 	public GridTile[][] theGrid;
+    private SoundController soundCtrl;
 
-	void Awake(){
+    void Awake(){
 		if ( !isGridInit ) {
 			theGrid = new GridTile[gridSizeX][];
 			for ( int i = 0; i < theGrid.Length; i++ ) {
@@ -31,7 +32,8 @@ public class GridPlane : MonoBehaviour, GridInterface {
 	void Start () {
 		if ( !isGridInit ) {
 			InitGrid();
-			AkSoundEngine.PostEvent("forestSoundscape", GameObject.FindGameObjectWithTag(Constants.SOUND));
+            soundCtrl = new SoundController();
+            soundCtrl.PlaySound("forestSoundscape", Constants.MUSIC);
 		}
 	}
 

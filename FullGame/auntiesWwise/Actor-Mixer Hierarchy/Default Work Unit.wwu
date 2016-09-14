@@ -1242,6 +1242,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2107,6 +2112,7 @@
 							</ExcludedPlatformList>
 							<PropertyList>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">

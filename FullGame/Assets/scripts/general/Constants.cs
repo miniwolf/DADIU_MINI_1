@@ -17,4 +17,8 @@ public class Constants {
 	public const string BLOCKINGCLICKS = "UIBlockClick";
 	public const string OBSTACLE = "Obstacle";
     public const string SOUND = "Sound";
+    public const string GAMESOUNDS = "GameSounds";
+    public const string MUSIC = "Music";
+    public const string MUTEMUSIC = "MuteMusic";
+    public const string MUTEGAMESOUND = "MuteGameSound";
 }
