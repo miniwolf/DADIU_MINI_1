@@ -23,7 +23,23 @@ public class ThrowingCake : MonoBehaviour, Cake {
 	private Animator animator;
 	private CakesTextInterface cakeText;
 
-	public void Start() {
+	void Reset() {
+		gameObject.SetActive(true);
+	}
+
+	void Awake() {
+		gameObject.SetActive(true);
+	}
+
+	void OnEnable() {
+		Debug.Log("Enables");
+	}
+
+	void OnDisable() {
+		Debug.Log("Disables");
+	}
+
+	void Start() {
 		layerMask = 1 << LayerMask.NameToLayer(Constants.GROUNDLAYER);
 
         soundCtrl = new SoundController();
@@ -36,18 +52,18 @@ public class ThrowingCake : MonoBehaviour, Cake {
 		player = GameObject.FindGameObjectWithTag(Constants.PLAYER).GetComponent<Transform>();
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesTextInterface>();
 
-		Reset();
+		doReset();
 	}
 
-	public void OnMouseDown() {
+	void OnMouseDown() {
 		down(Input.mousePosition);
 	}
 
-	public void OnMouseUp() {
+	void OnMouseUp() {
 		up(Input.mousePosition);
     }
 	
-	public void Update() {
+	void Update() {
 		RaycastHit hit;
 
 		if ( Input.touchCount > 0 ) {
@@ -109,17 +125,18 @@ public class ThrowingCake : MonoBehaviour, Cake {
 
 	public void OnCollisionStay() {
 		if ( isShooting ) {
-			Reset();
+			doReset();
 		}
 	}
 
-	private void Reset() {
+	private void doReset() {
 		if ( cakeText.GetNumCakes() == 0 ) {
 			gameObject.SetActive(false);
 		}
 		transform.rotation = startRotation;
 		ballBody.constraints = RigidbodyConstraints.FreezeAll;
 		isShooting = false;
+		mayThrow = false;
 	}
 
 	public void SetActive() {

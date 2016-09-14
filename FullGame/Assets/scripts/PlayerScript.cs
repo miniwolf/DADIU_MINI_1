@@ -36,10 +36,20 @@ public class PlayerScript : MonoBehaviour, Player {
 
 		cakeText = GameObject.FindGameObjectWithTag(Constants.CAKETEXT).GetComponent<CakesText>();
 		score = GameObject.FindGameObjectWithTag(Constants.SCORE).GetComponent<Score>();
+		Debug.Log(GameObject.FindGameObjectWithTag(Constants.CAKEICON));
 		cakeThrowing = GameObject.FindGameObjectWithTag(Constants.CAKEICON).GetComponent<ThrowingCake>();
 		cam = GameObject.FindGameObjectWithTag(Constants.PLAYERCAM).GetComponent<Camera>();
-        soundCtrl.PlaySound("auntieScream", Constants.GAMESOUNDS);
         now = Time.time;
+	}
+
+	private GameObject FindObject(string name) {
+		Transform[] trs = transform.parent.GetComponentsInChildren<Transform>();
+		foreach ( Transform t in trs ) {
+			if ( t.name == name ) {
+				return t.gameObject;
+			}
+		}
+		return null;
 	}
 
 	/// <summary>
