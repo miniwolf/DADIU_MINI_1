@@ -58,15 +58,20 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		if ( moving ) {
 			if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
-				StartCoroutine(StopMoving());
-                AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
-                score.AddTrollScore();
+				// don't collide with cake icon when it's not moving! (it's attached to girl's body)
+				if(!collision.gameObject.GetComponent<Rigidbody>().velocity.Equals(Vector3.zero)) {
+					StartCoroutine(StopMoving());
+					AkSoundEngine.PostEvent("trollHitByCake", GameObject.FindGameObjectWithTag(Constants.SOUND));                
+					score.AddTrollScore();
+				}
 			}
 		}
 
 		if ( collision.gameObject.tag.Equals(Constants.CAKEICON) ) {
-			StartCoroutine(StopMoving());
-			score.AddTrollScore();
+			if(!collision.gameObject.GetComponent<Rigidbody>().velocity.Equals(Vector3.zero)) {
+				StartCoroutine(StopMoving());
+				score.AddTrollScore();
+			}
 		} else if ( collision.gameObject.tag.Equals(Constants.PLAYER) ) {
 			CatchGirl();
 			//Change here to add the end screen
