@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
 /// <summary>
 /// Shows the highscore on screen.
 /// </summary>

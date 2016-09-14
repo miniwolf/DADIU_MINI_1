@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Shows score on screen and updates the highest score.
@@ -13,6 +14,7 @@ public class Score : MonoBehaviour, ScoreInterface {
 	private int score;
 	public int extraTime; //extra time when picking laundry
 	private Timer timer;
+	public string dkText;
 
 	void Start() {
 		text = GetComponent<Text>();
@@ -31,7 +33,11 @@ public class Score : MonoBehaviour, ScoreInterface {
 			PlayerPrefs.SetInt("highscore", highscore);
 		}
 		// show score on screen
-		text.text = score + " Points";
+		if(SceneManager.GetActiveScene().buildIndex==0){
+			text.text = score + " Points";
+		}else if(SceneManager.GetActiveScene().buildIndex==1){
+			text.text = score + dkText;
+		}
 	}
 
 	public void AddLaundryScore() {
